@@ -1,0 +1,3124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+         Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel pgmodeler-ver="0.9.2-alpha" last-position="1417,3578" last-zoom="1.4"
+	 default-schema="public" default-owner="postgres">
+<role name="safac_web"
+      inherit="true"
+      login="true"
+      bypassrls="true"
+      encrypted="true"
+      validity="1969-08-01 00:00:00"
+      password="********">
+</role>
+
+<role name="sagral"
+      inherit="true"
+      login="true"
+      bypassrls="true"
+      encrypted="true"
+      validity="1969-12-31 00:00:00"
+      password="********">
+</role>
+
+<role name="saf"
+      inherit="true"
+      login="true"
+      bypassrls="true"
+      encrypted="true"
+      password="********">
+</role>
+
+<role name="sta"
+      superuser="true"
+      inherit="true"
+      login="true"
+      bypassrls="true"
+      encrypted="true"
+      password="********">
+</role>
+
+<role name="paara"
+      inherit="true"
+      login="true"
+      bypassrls="true"
+      encrypted="true"
+      validity="1969-12-31 00:00:00"
+      password="********">
+</role>
+
+<role name="sai"
+      superuser="true"
+      inherit="true"
+      login="true"
+      bypassrls="true"
+      encrypted="true"
+      password="********">
+</role>
+
+<database name="ingreso" encoding="UTF8" lc-collate="Spanish_Argentina.1252" lc-ctype="Spanish_Argentina.1252" is-template="false" allow-conns="true">
+	<role name="postgres"/>
+	<tablespace name="pg_default"/>
+</database>
+
+<schema name="public" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<table name="InstanciasCursosAlumnosExamenes">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1920.13" y="1998.54"/>
+	<column name="IdCurso" not-null="true">
+		<type name="integer" length="10"/>
+	</column>
+	<column name="IdMateria" not-null="true">
+		<type name="smallint" length="10"/>
+	</column>
+	<column name="IdInscripcion" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="FechaAltaInstancia" not-null="true">
+		<type name="date" length="0"/>
+	</column>
+	<column name="IdTipoDoc" not-null="true">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="NroDoc" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="IdExamen" not-null="true">
+		<type name="smallint" length="10"/>
+	</column>
+	<column name="Calificacion" not-null="true" default-value="0">
+		<type name="double precision" length="0"/>
+	</column>
+	<constraint name="InstanciasCursosAlumnosExamenes_pk" type="pk-constr" table="public.&quot;InstanciasCursosAlumnosExamenes&quot;">
+		<columns names="IdCurso,IdMateria,IdInscripcion,FechaAltaInstancia,IdTipoDoc,NroDoc,IdExamen" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="FechaAltaInstancia_InstanciasCursosAlumnos" index="11"/>
+		<object name="FechaAltaInstancia_InstanciasCursosAlumnosMaterias" index="23"/>
+		<object name="IdCurso_InstanciasCursos" index="8"/>
+		<object name="IdCurso_InstanciasCursosAlumnos" index="9"/>
+		<object name="IdCurso_InstanciasCursosAlumnosMaterias" index="21"/>
+		<object name="IdCurso_InstanciasCursosMaterias" index="15"/>
+		<object name="IdExamen_InstanciasCursosMateriasExamenes" index="14"/>
+		<object name="IdInscripcion_InstanciasCursosAlumnos" index="10"/>
+		<object name="IdInscripcion_InstanciasCursosAlumnosMaterias" index="22"/>
+		<object name="IdMateria_InstanciasCursosAlumnosMaterias" index="26"/>
+		<object name="IdMateria_InstanciasCursosMaterias" index="16"/>
+		<object name="IdMateria_Materias" index="17"/>
+		<object name="IdTipoDoc_InstanciasCursosAlumnos" index="12"/>
+		<object name="IdTipoDoc_InstanciasCursosAlumnosMaterias" index="24"/>
+		<object name="IdTipoDoc_PersonasDatos" index="18"/>
+		<object name="IdTipoDoc_TipoDocumento" index="20"/>
+		<object name="NroDoc_InstanciasCursosAlumnos" index="13"/>
+		<object name="NroDoc_InstanciasCursosAlumnosMaterias" index="25"/>
+		<object name="NroDoc_PersonasDatos" index="19"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="InstanciasCursosAlumnosMaterias_fk" index="7"/>
+		<object name="InstanciasCursosAlumnos_fk" index="1"/>
+		<object name="InstanciasCursosMateriasExamenes_fk" index="2"/>
+		<object name="InstanciasCursosMaterias_fk" index="3"/>
+		<object name="InstanciasCursos_fk" index="0"/>
+		<object name="Materias_fk" index="4"/>
+		<object name="PersonasDatos_fk" index="5"/>
+		<object name="TipoDocumento_fk" index="6"/>
+	</customidxs>
+</table>
+
+<table name="InstanciasCursosAlumnosMaterias">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1896.47" y="1224.23"/>
+	<column name="IdCurso" not-null="true">
+		<type name="integer" length="10"/>
+	</column>
+	<column name="IdInscripcion" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="FechaAltaInstancia" not-null="true">
+		<type name="date" length="0"/>
+	</column>
+	<column name="IdTipoDoc" not-null="true">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="NroDoc" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="IdMateria" not-null="true">
+		<type name="smallint" length="10"/>
+	</column>
+	<column name="CantPres" not-null="true" default-value="0">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="CantAus" not-null="true" default-value="0">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="CantTotal" not-null="true" default-value="0">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="PorcAsist" not-null="true" default-value="100">
+		<type name="double precision" length="0"/>
+	</column>
+	<column name="Estado" not-null="true">
+		<type name="character varying" length="20"/>
+	</column>
+	<column name="NotaFinal">
+		<type name="double precision" length="0"/>
+	</column>
+	<constraint name="InstanciasCursosAlumnosMaterias_pk" type="pk-constr" table="public.&quot;InstanciasCursosAlumnosMaterias&quot;">
+		<columns names="IdCurso,IdInscripcion,FechaAltaInstancia,IdTipoDoc,NroDoc,IdMateria" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="FechaAltaInstancia_AspiranteInscripcion" index="25"/>
+		<object name="FechaAltaInstancia_InstanciasCursosAlumnos" index="17"/>
+		<object name="IdCurso_InstanciasCursos" index="12"/>
+		<object name="IdCurso_InstanciasCursosAlumnos" index="15"/>
+		<object name="IdCurso_InstanciasCursosMaterias" index="13"/>
+		<object name="IdInscripcion_AspiranteInscripcion" index="24"/>
+		<object name="IdInscripcion_InstanciasCursosAlumnos" index="16"/>
+		<object name="IdMateria_InstanciasCursosMaterias" index="14"/>
+		<object name="IdMateria_Materias" index="20"/>
+		<object name="IdTipoDoc_AspiranteInscripcion" index="26"/>
+		<object name="IdTipoDoc_InstanciasCursosAlumnos" index="18"/>
+		<object name="IdTipoDoc_PersonasDatos" index="21"/>
+		<object name="IdTipoDoc_TipoDocumento" index="23"/>
+		<object name="NroDoc_AspiranteInscripcion" index="27"/>
+		<object name="NroDoc_InstanciasCursosAlumnos" index="19"/>
+		<object name="NroDoc_PersonasDatos" index="22"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="AspiranteInscripcion_fk" index="7"/>
+		<object name="InstanciasCursosAlumnos_fk" index="2"/>
+		<object name="InstanciasCursosMaterias_fk" index="1"/>
+		<object name="InstanciasCursos_fk" index="0"/>
+		<object name="Materias_fk" index="3"/>
+		<object name="PersonasDatos_fk" index="4"/>
+		<object name="TipoDocumento_fk" index="5"/>
+	</customidxs>
+</table>
+
+<table name="Anexo">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="899.615" y="315.692"/>
+	<column name="IdAnexo" not-null="true">
+		<type name="serial" length="0"/>
+	</column>
+	<column name="Descripcion" not-null="true">
+		<type name="character varying" length="70"/>
+	</column>
+	<column name="Baja" not-null="true">
+		<type name="boolean" length="1"/>
+	</column>
+	<column name="FechaBaja">
+		<type name="date" length="0"/>
+	</column>
+	<column name="CausaBaja">
+		<type name="character varying" length="100"/>
+	</column>
+	<constraint name="Anexo_pk" type="pk-constr" table="public.&quot;Anexo&quot;">
+		<columns names="IdAnexo" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="Carreras">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="58.877" y="1349.43"/>
+	<column name="IdCarrera" not-null="true">
+		<type name="serial" length="10"/>
+	</column>
+	<column name="IdTipoCarrera" not-null="true">
+		<type name="integer" length="10"/>
+	</column>
+	<column name="Descripcion" not-null="true">
+		<type name="character varying" length="50"/>
+	</column>
+	<column name="CodigoInterno">
+		<type name="character varying" length="10"/>
+	</column>
+	<column name="Baja" not-null="true">
+		<type name="boolean" length="1"/>
+	</column>
+	<column name="FechaBaja">
+		<type name="date" length="0"/>
+	</column>
+	<column name="CausaBaja">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="Carreras_pk" type="pk-constr" table="public.&quot;Carreras&quot;">
+		<columns names="IdCarrera" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="IdTipoCarrera_TipoCarrera" index="7"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="TipoCarrera_fk" index="1"/>
+	</customidxs>
+</table>
+
+<table name="Colegios">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1715.92" y="21.7692"/>
+	<column name="IdColegio" not-null="true">
+		<type name="serial" length="10"/>
+	</column>
+	<column name="Descripcion" not-null="true">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="CodigoEspecial">
+		<type name="character varying" length="20"/>
+	</column>
+	<column name="IdTipoEstablecimiento" not-null="true">
+		<type name="smallint" length="25"/>
+	</column>
+	<column name="IdNivel" not-null="true">
+		<type name="smallint" length="20"/>
+	</column>
+	<column name="Direccion" not-null="true">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="IdLocalidad" not-null="true">
+		<type name="integer" length="10"/>
+	</column>
+	<column name="Telefono" not-null="true">
+		<type name="character varying" length="30"/>
+	</column>
+	<column name="Mail" not-null="true">
+		<type name="character varying" length="50"/>
+	</column>
+	<column name="Baja" not-null="true">
+		<type name="boolean" length="1"/>
+	</column>
+	<column name="FechaBaja">
+		<type name="date" length="0"/>
+	</column>
+	<column name="CausaBaja">
+		<type name="smallint" length="0"/>
+	</column>
+	<constraint name="Colegios_pk" type="pk-constr" table="public.&quot;Colegios&quot;">
+		<columns names="IdColegio" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="IdLocalidad_Localidad" index="12"/>
+		<object name="IdNivelEstaudio_NivelEstudios" index="14"/>
+		<object name="IdTipoEstablecimiento_TiposEstablecimientos" index="13"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="Localidad_fk" index="1"/>
+		<object name="NivelEstudios_fk" index="3"/>
+		<object name="TiposEstablecimientos_fk" index="2"/>
+	</customidxs>
+</table>
+
+<table name="InstanciasCursosAlumnos">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1099.94" y="1226"/>
+	<column name="IdCurso" not-null="true">
+		<type name="integer" length="10"/>
+	</column>
+	<column name="IdInscripcion" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="FechaAltaInstancia" not-null="true">
+		<type name="date" length="0"/>
+	</column>
+	<column name="IdTipoDoc" not-null="true">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="NroDoc" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="cual_estado" not-null="true">
+		<type name="character varying" length="20"/>
+	</column>
+	<constraint name="InstanciasCursosAlumnos_pk" type="pk-constr" table="public.&quot;InstanciasCursosAlumnos&quot;">
+		<columns names="IdCurso,IdInscripcion,FechaAltaInstancia,IdTipoDoc,NroDoc" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="IdCurso_InstanciasCursos" index="6"/>
+		<object name="IdTipoDoc_PersonasDatos" index="7"/>
+		<object name="IdTipoDoc_TipoDocumento" index="9"/>
+		<object name="NroDoc_PersonasDatos" index="8"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="InstanciasCursos_fk" index="0"/>
+		<object name="PersonasDatos_fk" index="1"/>
+		<object name="TipoDocumento_fk" index="2"/>
+	</customidxs>
+</table>
+
+<table name="InstanciasCursosMaterias">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1122.62" y="1847.84"/>
+	<column name="IdCurso" not-null="true">
+		<type name="integer" length="10"/>
+	</column>
+	<column name="IdMateria" not-null="true">
+		<type name="smallint" length="10"/>
+	</column>
+	<column name="IdTipoCalificacion" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="Aprobacion" not-null="true">
+		<type name="integer" length="30"/>
+	</column>
+	<column name="CantExamen" not-null="true" default-value="0">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="Estado" not-null="true" default-value="'ABIERTA'">
+		<type name="character varying" length="15"/>
+	</column>
+	<constraint name="InstanciasCursosMaterias_pk" type="pk-constr" table="public.&quot;InstanciasCursosMaterias&quot;">
+		<columns names="IdCurso,IdMateria" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="InstaciasCursosPresentismo">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="943.077" y="2106.46"/>
+	<column name="IdCurso" not-null="true">
+		<type name="integer" length="10"/>
+	</column>
+	<column name="IdMateria" not-null="true">
+		<type name="smallint" length="10"/>
+	</column>
+	<column name="IdInscripcion" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="FechaAltaInstancia" not-null="true">
+		<type name="date" length="0"/>
+	</column>
+	<column name="IdTipoDoc" not-null="true">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="NroDoc" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="Fecha" not-null="true">
+		<type name="date" length="0"/>
+	</column>
+	<column name="Presentismo" not-null="true" default-value="&quot;P&quot;">
+		<type name="character varying" length="1"/>
+	</column>
+	<constraint name="InstaciasCursosPresentismo_pk" type="pk-constr" table="public.&quot;InstaciasCursosPresentismo&quot;">
+		<columns names="IdCurso,IdMateria,IdInscripcion,FechaAltaInstancia,IdTipoDoc,NroDoc,Fecha" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="FechaAltaInstancia_AspiranteInscripcion" index="23"/>
+		<object name="FechaAltaInstancia_InstanciasCursosAlumnos" index="17"/>
+		<object name="FechaAltaInstancia_InstanciasCursosAlumnosMaterias" index="27"/>
+		<object name="IdCurso_InstanciasCursos" index="8"/>
+		<object name="IdCurso_InstanciasCursosAlumnos" index="15"/>
+		<object name="IdCurso_InstanciasCursosAlumnosMaterias" index="11"/>
+		<object name="IdCurso_InstanciasCursosMaterias" index="9"/>
+		<object name="IdInscripcion_AspiranteInscripcion" index="12"/>
+		<object name="IdInscripcion_InstanciasCursosAlumnos" index="16"/>
+		<object name="IdInscripcion_InstanciasCursosAlumnosMaterias" index="26"/>
+		<object name="IdMateria_InstanciasCursosAlumnosMaterias" index="14"/>
+		<object name="IdMateria_InstanciasCursosMaterias" index="10"/>
+		<object name="IdTipoDoc_AspiranteInscripcion" index="24"/>
+		<object name="IdTipoDoc_InstanciasCursosAlumnos" index="18"/>
+		<object name="IdTipoDoc_PersonasDatos" index="20"/>
+		<object name="IdTipoDoc_TipoDocumento" index="22"/>
+		<object name="NroDoc_AspiranteInscripcion" index="25"/>
+		<object name="NroDoc_InstanciasCursosAlumnos" index="19"/>
+		<object name="NroDoc_InstanciasCursosAlumnosMaterias" index="13"/>
+		<object name="NroDoc_PersonasDatos" index="21"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="InstanciasCursosAlumnosMaterias_fk" index="2"/>
+		<object name="InstanciasCursosAlumnos_fk" index="3"/>
+		<object name="InstanciasCursosMaterias_fk" index="1"/>
+		<object name="InstanciasCursos_fk" index="0"/>
+		<object name="PersonasDatos_fk" index="4"/>
+		<object name="TipoDocumento_fk" index="5"/>
+	</customidxs>
+</table>
+
+<table name="AspiranteFamilia">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="449.352" y="989.857"/>
+	<column name="IdInscripcion" not-null="true">
+		<type name="integer" length="10"/>
+	</column>
+	<column name="FechaAltaInscripcion" not-null="true">
+		<type name="date" length="0"/>
+	</column>
+	<column name="IdTipoDoc" not-null="true">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="NroDoc" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="Integrante" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="IdTipoIntegrante" not-null="true">
+		<type name="integer" length="2"/>
+	</column>
+	<column name="IdNivelEstudios" not-null="true">
+		<type name="integer" length="20"/>
+	</column>
+	<column name="IdOcupacion">
+		<type name="integer" length="70"/>
+	</column>
+	<column name="Edad">
+		<type name="integer" length="0"/>
+	</column>
+	<constraint name="AspiranteFamilia_pk" type="pk-constr" table="public.&quot;AspiranteFamilia&quot;">
+		<columns names="IdInscripcion,FechaAltaInscripcion,IdTipoDoc,NroDoc,Integrante" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="FechaAltaInstancia_AspiranteInscripcion" index="18"/>
+		<object name="IdInscripcion_AspiranteInscripcion" index="17"/>
+		<object name="IdNivelEstaudio_NivelEstudios" index="11"/>
+		<object name="IdOcupacion_Ocupaciones" index="16"/>
+		<object name="IdTipoDoc_AspiranteInscripcion" index="12"/>
+		<object name="IdTipoDoc_PersonasDatos" index="9"/>
+		<object name="IdTipoDoc_TipoDocumento" index="14"/>
+		<object name="IdTipoIntegrante_TiposIntegrantes" index="15"/>
+		<object name="NroDoc_AspiranteInscripcion" index="13"/>
+		<object name="NroDoc_PersonasDatos" index="10"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="AspiranteInscripcion_fk" index="1"/>
+		<object name="NivelEstudios_fk" index="4"/>
+		<object name="Ocupaciones_fk" index="5"/>
+		<object name="PersonasDatos_fk" index="0"/>
+		<object name="TipoDocumento_fk" index="2"/>
+		<object name="TiposIntegrantes_fk" index="3"/>
+	</customidxs>
+</table>
+
+<table name="AspiranteInscripcion">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="199.615" y="21"/>
+	<column name="IdInscripcion" not-null="true" default-value="0">
+		<type name="integer" length="10"/>
+	</column>
+	<column name="FechaAltaInstancia" not-null="true">
+		<type name="date" length="0"/>
+	</column>
+	<column name="IdTipoDoc" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="NroDoc" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="FechaInscripcion" not-null="true">
+		<type name="date" length="0"/>
+	</column>
+	<column name="IdCarrera" not-null="true">
+		<type name="integer" length="10"/>
+	</column>
+	<column name="IdAnexo" not-null="true">
+		<type name="integer" length="10"/>
+	</column>
+	<column name="IdModalidad" not-null="true">
+		<type name="integer" length="10"/>
+	</column>
+	<column name="Legajo">
+		<type name="character varying" length="15"/>
+	</column>
+	<column name="IdTurno" not-null="true">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="NroPreinscripcion" not-null="true" default-value="0">
+		<type name="smallint" length="50"/>
+	</column>
+	<column name="NroInscripcion" not-null="true" default-value="0">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="Estado" not-null="true" default-value="'PREINSCRIPTO'">
+		<type name="character varying" length="20"/>
+	</column>
+	<column name="FechaNacimiento" not-null="true">
+		<type name="date" length="0"/>
+	</column>
+	<column name="IdLocalidadNac" not-null="true">
+		<type name="integer" length="70"/>
+	</column>
+	<column name="IdGenero" not-null="true">
+		<type name="integer" length="10"/>
+	</column>
+	<column name="Nacionalidad" not-null="true">
+		<type name="character varying" length="15"/>
+	</column>
+	<column name="IdPais" not-null="true">
+		<type name="integer" length="10"/>
+	</column>
+	<column name="IdEstadoCivil" not-null="true">
+		<type name="integer" length="20"/>
+	</column>
+	<column name="Hijos" not-null="true">
+		<type name="bool" length="2"/>
+	</column>
+	<column name="HijosCantidad" not-null="true" default-value="0">
+		<type name="integer" length="2"/>
+	</column>
+	<column name="HijosEdades">
+		<type name="character varying" length="50"/>
+	</column>
+	<column name="IdTipoEstudio" not-null="true">
+		<type name="integer" length="25"/>
+		<comment><![CDATA[Tipo de estudio cursado]]></comment>
+	</column>
+	<column name="IdTitulo" not-null="true">
+		<type name="integer" length="10"/>
+	</column>
+	<column name="IdOrientacion" not-null="true">
+		<type name="integer" length="10"/>
+	</column>
+	<column name="IdColegio" not-null="true">
+		<type name="integer" length="10"/>
+	</column>
+	<column name="IdTipoEstablecimiento" not-null="true">
+		<type name="integer" length="25"/>
+	</column>
+	<column name="AnioEgreso" not-null="true">
+		<type name="integer" length="4"/>
+	</column>
+	<column name="CantidadAnios" not-null="true">
+		<type name="integer" length="2"/>
+	</column>
+	<column name="OtrosEstudios">
+		<type name="character varying" length="15"/>
+	</column>
+	<column name="OtrosCarrera">
+		<type name="character varying" length="70"/>
+	</column>
+	<column name="OtrosEstablecimiento">
+		<type name="character varying" length="70"/>
+	</column>
+	<column name="OtrosEstado">
+		<type name="character varying" length="10"/>
+	</column>
+	<column name="Informatica" not-null="true">
+		<type name="boolean" length="2"/>
+	</column>
+	<column name="Idioma" not-null="true">
+		<type name="boolean" length="2"/>
+	</column>
+	<column name="IdiomaDescripcion">
+		<type name="character varying" length="50"/>
+	</column>
+	<column name="Trabaja" not-null="true">
+		<type name="boolean" length="2"/>
+	</column>
+	<column name="Empresa">
+		<type name="character varying" length="70"/>
+	</column>
+	<column name="IdOcupacion">
+		<type name="integer" length="100"/>
+	</column>
+	<column name="IdCargo">
+		<type name="integer" length="70"/>
+	</column>
+	<column name="IdHorasSemanales">
+		<type name="integer" length="15"/>
+	</column>
+	<column name="IdTipoRelacion">
+		<type name="integer" length="20"/>
+	</column>
+	<column name="IdOpcionEncuestaRga" not-null="true">
+		<type name="integer" length="25"/>
+	</column>
+	<column name="Otro">
+		<type name="character varying" length="100"/>
+	</column>
+	<constraint name="AspiranteInscripcion_pk" type="pk-constr" table="public.&quot;AspiranteInscripcion&quot;">
+		<columns names="IdInscripcion,FechaAltaInstancia,IdTipoDoc,NroDoc" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="IdAnexo_Anexo" index="45"/>
+		<object name="IdCargo_Cargos" index="58"/>
+		<object name="IdCarrera_Carreras" index="44"/>
+		<object name="IdColegio_Colegios" index="55"/>
+		<object name="IdEstadoCivil_EstadoCivil" index="51"/>
+		<object name="IdGenero_Genero" index="49"/>
+		<object name="IdHoraSemanal_HorasSemanales" index="59"/>
+		<object name="IdLocalidad_Localidad" index="48"/>
+		<object name="IdModalidad_Modalidad" index="46"/>
+		<object name="IdNivelEstaudio_NivelEstudios" index="52"/>
+		<object name="IdOcupacion_Ocupaciones" index="57"/>
+		<object name="IdOpcionEncuestaRga_EncuestaRgaOpciones" index="61"/>
+		<object name="IdOrientacion_Orientacion" index="54"/>
+		<object name="IdPais_Pais" index="50"/>
+		<object name="IdTipoDoc_PersonasDatos" index="63"/>
+		<object name="IdTipoDoc_TipoDocumento" index="62"/>
+		<object name="IdTipoEstablecimiento_TiposEstablecimientos" index="56"/>
+		<object name="IdTipoRealacion_TiposRealaciones" index="60"/>
+		<object name="IdTitulo_Titulos" index="53"/>
+		<object name="IdTurno_Turnos" index="47"/>
+		<object name="NroDoc_PersonasDatos" index="64"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="Anexo_fk" index="1"/>
+		<object name="Cargos_fk" index="14"/>
+		<object name="Carreras_fk" index="0"/>
+		<object name="Colegios_fk" index="11"/>
+		<object name="EncuestaRgaOpciones_fk" index="17"/>
+		<object name="EstadoCivil_fk" index="7"/>
+		<object name="Genero_fk" index="5"/>
+		<object name="HorasSemanales_fk" index="15"/>
+		<object name="Localidad_fk" index="4"/>
+		<object name="Modalidad_fk" index="2"/>
+		<object name="NivelEstudios_fk" index="8"/>
+		<object name="Ocupaciones_fk" index="13"/>
+		<object name="Orientacion_fk" index="10"/>
+		<object name="Pais_fk" index="6"/>
+		<object name="PersonasDatos_fk" index="19"/>
+		<object name="TipoDocumento_fk" index="18"/>
+		<object name="TiposEstablecimientos_fk" index="12"/>
+		<object name="TiposRealaciones_fk" index="16"/>
+		<object name="Titulos_fk" index="9"/>
+		<object name="Turnos_fk" index="3"/>
+	</customidxs>
+</table>
+
+<table name="InstanciasInscripcion">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="453.277" y="1849.43"/>
+	<column name="IdInscripcion" not-null="true">
+		<type name="integer" length="10"/>
+	</column>
+	<column name="FechaAltaInstancia" not-null="true">
+		<type name="date" length="0"/>
+	</column>
+	<column name="Descripcion" not-null="true">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="DescripcionAbreviada" not-null="true" default-value="0">
+		<type name="character varying" length="20"/>
+	</column>
+	<column name="Anio" not-null="true">
+		<type name="integer" length="4"/>
+	</column>
+	<column name="NroInscripcionAlumno" not-null="true" default-value="0">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="Estado" not-null="true">
+		<type name="character varying" length="20"/>
+	</column>
+	<column name="FechaInicio" not-null="true">
+		<type name="date" length="0"/>
+	</column>
+	<column name="FechaFin" not-null="true">
+		<type name="date" length="0"/>
+	</column>
+	<constraint name="InstanciasInscripcion_pk" type="pk-constr" table="public.&quot;InstanciasInscripcion&quot;">
+		<columns names="IdInscripcion,FechaAltaInstancia" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="IdInscripcion_Inscripcion" index="9"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="Inscripcion_fk" index="0"/>
+	</customidxs>
+</table>
+
+<table name="Localidad">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1302.7" y="623.769"/>
+	<column name="IdLocalidad" not-null="true">
+		<type name="serial" length="10"/>
+	</column>
+	<column name="IdPartido" not-null="true">
+		<type name="integer" length="10"/>
+	</column>
+	<column name="Descripcion" not-null="true">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="Cp" not-null="true">
+		<type name="character varying" length="20"/>
+	</column>
+	<column name="Baja" not-null="true">
+		<type name="boolean" length="1"/>
+	</column>
+	<column name="FechaBaja">
+		<type name="date" length="0"/>
+	</column>
+	<column name="CausaBaja">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="Localidad_pk" type="pk-constr" table="public.&quot;Localidad&quot;">
+		<columns names="IdLocalidad" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="IdPartido_Partido" index="7"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="Partido_fk" index="1"/>
+	</customidxs>
+</table>
+
+<table name="Modalidad">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="894.231" y="446.462"/>
+	<column name="IdModalidad" not-null="true">
+		<type name="integer" length="10"/>
+	</column>
+	<column name="Descripcion" not-null="true">
+		<type name="character varying" length="50"/>
+	</column>
+	<column name="Baja" not-null="true">
+		<type name="boolean" length="1"/>
+	</column>
+	<column name="FechaBaja">
+		<type name="date" length="0"/>
+	</column>
+	<column name="CausaBaja">
+		<type name="character varying" length="100"/>
+	</column>
+	<constraint name="Modalidad_pk" type="pk-constr" table="public.&quot;Modalidad&quot;">
+		<columns names="IdModalidad" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="Orientacion">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="2195" y="266.385"/>
+	<column name="IdOrientacion" not-null="true">
+		<type name="integer" length="10"/>
+	</column>
+	<column name="IdTitulo" not-null="true">
+		<type name="smallint" length="10"/>
+	</column>
+	<column name="Descripcion" not-null="true">
+		<type name="character varying" length="100"/>
+	</column>
+	<constraint name="Orientacion_pk" type="pk-constr" table="public.&quot;Orientacion&quot;">
+		<columns names="IdOrientacion" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="Partido">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1740.13" y="626"/>
+	<column name="IdPartido" not-null="true">
+		<type name="serial" length="10"/>
+	</column>
+	<column name="Descripcion" not-null="true">
+		<type name="character varying" length="70"/>
+	</column>
+	<column name="IdProvincia" not-null="true" default-value="0">
+		<type name="integer" length="10"/>
+	</column>
+	<column name="Baja" not-null="true">
+		<type name="boolean" length="1"/>
+	</column>
+	<column name="FechaBaja">
+		<type name="date" length="0"/>
+	</column>
+	<column name="CausaBaja">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="Partido_pk" type="pk-constr" table="public.&quot;Partido&quot;">
+		<columns names="IdPartido" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="IdProvincia_Provincia" index="6"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="Provincia_fk" index="1"/>
+	</customidxs>
+</table>
+
+<table name="Provincia">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="2184.15" y="634.385"/>
+	<column name="IdProvincia" not-null="true">
+		<type name="serial" length="10"/>
+	</column>
+	<column name="Descripcion" not-null="true">
+		<type name="character varying" length="50"/>
+	</column>
+	<column name="IdPais" not-null="true" default-value="0">
+		<type name="integer" length="10"/>
+	</column>
+	<column name="Baja" not-null="true">
+		<type name="boolean" length="1"/>
+	</column>
+	<column name="FechaBaja">
+		<type name="date" length="0"/>
+	</column>
+	<column name="CausaBaja" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="Provincia_pk" type="pk-constr" table="public.&quot;Provincia&quot;">
+		<columns names="IdProvincia" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="IdPais_Pais" index="6"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="Pais_fk" index="1"/>
+	</customidxs>
+</table>
+
+<table name="Titulos">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="2222.31" y="20.6155"/>
+	<column name="IdTitulo" not-null="true">
+		<type name="integer" length="10"/>
+	</column>
+	<column name="Descripcion" not-null="true">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="Nivel" not-null="true">
+		<type name="character varying" length="20"/>
+	</column>
+	<column name="Baja" not-null="true">
+		<type name="boolean" length="1"/>
+	</column>
+	<column name="FechaBaja">
+		<type name="date" length="0"/>
+	</column>
+	<column name="CausaBaja">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="Titulos_pk" type="pk-constr" table="public.&quot;Titulos&quot;">
+		<columns names="IdTitulo" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="Inscripcion">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="45" y="1837.4"/>
+	<column name="IdInscripcion" not-null="true">
+		<type name="serial" length="10"/>
+	</column>
+	<column name="Descripcion" not-null="true">
+		<type name="character varying" length="70"/>
+	</column>
+	<constraint name="Inscripcion_pk" type="pk-constr" table="public.&quot;Inscripcion&quot;">
+		<columns names="IdInscripcion" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="InscripcionCarreras">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="61.6" y="2012"/>
+	<column name="IdInscripcion" not-null="true">
+		<type name="integer" length="10"/>
+	</column>
+	<column name="IdCarrera" not-null="true">
+		<type name="integer" length="10"/>
+	</column>
+	<constraint name="InscripcionCarreras_pk" type="pk-constr" table="public.&quot;InscripcionCarreras&quot;">
+		<columns names="IdInscripcion,IdCarrera" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="InstanciasCursos">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1094.06" y="1486.98"/>
+	<column name="IdCurso" not-null="true">
+		<type name="serial" length="100"/>
+	</column>
+	<column name="IdInscripcion" not-null="true">
+		<type name="integer" length="10"/>
+	</column>
+	<column name="FechaAltaInstancia" not-null="true">
+		<type name="date" length="0"/>
+	</column>
+	<column name="Descripcion" not-null="true">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="IdModalidad" not-null="true">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="CupoMax" not-null="true" default-value="0">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="CupoMin" not-null="true" default-value="0">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="CantAlumnos" not-null="true" default-value="0">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="Estado" not-null="true" default-value="'ESPERA'">
+		<type name="character varying" length="15"/>
+	</column>
+	<column name="FechaAlta" not-null="true">
+		<type name="date" length="0"/>
+	</column>
+	<constraint name="InstanciasCursos_pk" type="pk-constr" table="public.&quot;InstanciasCursos&quot;">
+		<columns names="IdCurso" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="FechaAltaInstancia_InstanciasInscripcion" index="11"/>
+		<object name="IdInscripcion_InstanciasInscripcion" index="10"/>
+		<object name="IdModalidad_Modalidad" index="12"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="InstanciasInscripcion_fk" index="1"/>
+		<object name="Modalidad_fk" index="2"/>
+	</customidxs>
+</table>
+
+<table name="InstanciasInscripcionAnexos">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="463.806" y="2276.51"/>
+	<column name="IdInscripcion" not-null="true">
+		<type name="integer" length="10"/>
+	</column>
+	<column name="FechaAltaInstancia" not-null="true">
+		<type name="date" length="0"/>
+	</column>
+	<column name="IdAnexo" not-null="true">
+		<type name="smallint" length="10"/>
+	</column>
+	<constraint name="InstanciasInscripcionAnexos_pk" type="pk-constr" table="public.&quot;InstanciasInscripcionAnexos&quot;">
+		<columns names="IdInscripcion,FechaAltaInstancia,IdAnexo" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="FechaAltaInstancia_InstanciasInscripcion" index="4"/>
+		<object name="IdAnexo_Anexo" index="5"/>
+		<object name="IdInscripcion_InstanciasInscripcion" index="3"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="Anexo_fk" index="1"/>
+		<object name="InstanciasInscripcion_fk" index="0"/>
+	</customidxs>
+</table>
+
+<table name="InstanciasInscripcionMaterias">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="445.481" y="2132.22"/>
+	<column name="IdInscripcion" not-null="true">
+		<type name="integer" length="10"/>
+	</column>
+	<column name="FechaAltaInstancia" not-null="true">
+		<type name="date" length="0"/>
+	</column>
+	<column name="IdMateria" not-null="true">
+		<type name="smallint" length="10"/>
+	</column>
+	<constraint name="InstanciasInscripcionMaterias_pk" type="pk-constr" table="public.&quot;InstanciasInscripcionMaterias&quot;">
+		<columns names="IdInscripcion,FechaAltaInstancia,IdMateria" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="FechaAltaInstancia_InstanciasInscripcion" index="4"/>
+		<object name="IdInscripcion_InstanciasInscripcion" index="3"/>
+		<object name="IdMateria_Materias" index="5"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="InstanciasInscripcion_fk" index="0"/>
+		<object name="Materias_fk" index="1"/>
+	</customidxs>
+</table>
+
+<table name="InstanciasInscripcionModalidad">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="57.8" y="2274.6"/>
+	<column name="IdInscripcion" not-null="true">
+		<type name="integer" length="10"/>
+	</column>
+	<column name="IdModalidad" not-null="true">
+		<type name="smallint" length="10"/>
+	</column>
+	<column name="FechaAltaInstancia" not-null="true">
+		<type name="date" length="0"/>
+	</column>
+	<constraint name="InstanciasInscripcionModalidad_pk" type="pk-constr" table="public.&quot;InstanciasInscripcionModalidad&quot;">
+		<columns names="IdInscripcion,IdModalidad,FechaAltaInstancia" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="FechaAltaInstancia_InstanciasInscripcion" index="4"/>
+		<object name="IdInscripcion_InstanciasInscripcion" index="3"/>
+		<object name="IdModalidad_Modalidad" index="5"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="InstanciasInscripcion_fk" index="0"/>
+		<object name="Modalidad_fk" index="1"/>
+	</customidxs>
+</table>
+
+<table name="InstanciasInscripcionTurnos">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="20.9429" y="2156"/>
+	<column name="IdInscripcion" not-null="true">
+		<type name="integer" length="10"/>
+	</column>
+	<column name="FechaAltaInstancia" not-null="true">
+		<type name="date" length="0"/>
+	</column>
+	<column name="IdTurno" not-null="true">
+		<type name="smallint" length="10"/>
+	</column>
+	<constraint name="InstanciasTurnos_pk" type="pk-constr" table="public.&quot;InstanciasInscripcionTurnos&quot;">
+		<columns names="IdInscripcion,FechaAltaInstancia,IdTurno" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="FechaAltaInstancia_InstanciasInscripcion" index="5"/>
+		<object name="IdInscripcion_InstanciasInscripcion" index="4"/>
+		<object name="IdTurno_Turnos" index="3"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="InstanciasInscripcion_fk" index="1"/>
+		<object name="Turnos_fk" index="0"/>
+	</customidxs>
+</table>
+
+<table name="Materias">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1340.83" y="965.35"/>
+	<column name="IdMateria" not-null="true">
+		<type name="smallserial" length="10"/>
+	</column>
+	<column name="Descripcion" not-null="true">
+		<type name="character varying" length="70"/>
+	</column>
+	<column name="Baja" not-null="true">
+		<type name="boolean" length="1"/>
+	</column>
+	<column name="FechaBaja">
+		<type name="date" length="0"/>
+	</column>
+	<column name="CausaBaja">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="Materias_pk" type="pk-constr" table="public.&quot;Materias&quot;">
+		<columns names="IdMateria" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="InstanciasCursosMateriasExamenes">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1896.13" y="1704.1"/>
+	<column name="IdExamen" not-null="true">
+		<type name="serial" length="10"/>
+	</column>
+	<column name="IdCurso" not-null="true">
+		<type name="integer" length="10"/>
+	</column>
+	<column name="IdMateria" not-null="true">
+		<type name="integer" length="10"/>
+	</column>
+	<column name="Descripcion" not-null="true">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="DescripcionCorta" not-null="true">
+		<type name="character varying" length="15"/>
+	</column>
+	<column name="IdTipoEvaluacion" not-null="true">
+		<type name="interval" length="30"/>
+	</column>
+	<column name="Fecha">
+		<type name="date" length="0"/>
+	</column>
+	<column name="Recupera" not-null="true">
+		<type name="boolean" length="10"/>
+	</column>
+	<column name="IdEvaluacionRecupera">
+		<type name="integer" length="10"/>
+	</column>
+	<column name="Orden" not-null="true" default-value="0">
+		<type name="integer" length="0"/>
+	</column>
+	<constraint name="InstanciasCursosMateriasExamenes_pk" type="pk-constr" table="public.&quot;InstanciasCursosMateriasExamenes&quot;">
+		<columns names="IdExamen" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="IdCurso_InstanciasCursos" index="10"/>
+		<object name="IdMateria_Materias" index="11"/>
+		<object name="IdTipoEvaluacion_TiposEvaluaciones" index="12"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="InstanciasCursos_fk" index="1"/>
+		<object name="Materias_fk" index="2"/>
+		<object name="TiposEvaluaciones_fk" index="3"/>
+	</customidxs>
+</table>
+
+<table name="Modulos">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="508.923" y="2631.54"/>
+	<column name="IdModulo" not-null="true">
+		<type name="integer" length="10"/>
+	</column>
+	<column name="Descripcion" not-null="true">
+		<type name="character varying" length="50"/>
+	</column>
+	<constraint name="Modulos_pk" type="pk-constr" table="public.&quot;Modulos&quot;">
+		<columns names="IdModulo" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="TipoCarrera">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="59.8152" y="1628.6"/>
+	<column name="IdTipoCarrera" not-null="true">
+		<type name="integer" length="10"/>
+	</column>
+	<column name="Descripcion" not-null="true">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="Baja" not-null="true" default-value="0">
+		<type name="boolean" length="1"/>
+	</column>
+	<column name="FechaBaja">
+		<type name="date" length="0"/>
+	</column>
+	<column name="CausaBaja">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="TipoCarrera_pk" type="pk-constr" table="public.&quot;TipoCarrera&quot;">
+		<columns names="IdTipoCarrera" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="Turnos">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1326.92" y="443.308"/>
+	<column name="IdTurno" not-null="true">
+		<type name="integer" length="10"/>
+	</column>
+	<column name="Descripcion" not-null="true">
+		<type name="character varying" length="50"/>
+	</column>
+	<column name="Baja" not-null="true">
+		<type name="boolean" length="1"/>
+	</column>
+	<column name="FechaBaja">
+		<type name="date" length="0"/>
+	</column>
+	<column name="CausaBaja">
+		<type name="character varying" length="100"/>
+	</column>
+	<constraint name="Turnos_pk" type="pk-constr" table="public.&quot;Turnos&quot;">
+		<columns names="IdTurno" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="Usuarios">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="18.3077" y="2423.76"/>
+	<column name="User" not-null="true">
+		<type name="character varying" length="20"/>
+	</column>
+	<column name="IdTipoDoc" not-null="true">
+		<type name="integer" length="70"/>
+	</column>
+	<column name="NroDoc" not-null="true">
+		<type name="integer" length="50"/>
+	</column>
+	<column name="Clave" not-null="true">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="Baja" not-null="true" default-value="0">
+		<type name="boolean" length="1"/>
+	</column>
+	<column name="FechaBaja">
+		<type name="date" length="0"/>
+	</column>
+	<column name="CausaBaja">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="Usuarios_pk" type="pk-constr" table="public.&quot;Usuarios&quot;">
+		<columns names="User" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="IdTipoDoc_PersonasDatos" index="7"/>
+		<object name="NroDoc_PersonasDatos" index="8"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="PersonasDatos_fk" index="1"/>
+		<object name="Usuarios_uq" index="2"/>
+	</customidxs>
+</table>
+
+<table name="UsuariosCarreras">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="20.5382" y="2672.85"/>
+	<column name="User" not-null="true">
+		<type name="character varying" length="20"/>
+	</column>
+	<column name="IdCarrera" not-null="true">
+		<type name="integer" length="10"/>
+	</column>
+	<constraint name="UsuariosCarreras_pk" type="pk-constr" table="public.&quot;UsuariosCarreras&quot;">
+		<columns names="User,IdCarrera" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="IdCarrera_Carreras" index="3"/>
+		<object name="User_Usuarios" index="2"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="Carreras_fk" index="2"/>
+		<object name="Usuarios_fk" index="1"/>
+	</customidxs>
+</table>
+
+<table name="UsuariosInscripcion">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="442.956" y="2748.94"/>
+	<column name="User" not-null="true">
+		<type name="character varying" length="20"/>
+	</column>
+	<column name="IdInscripcion" not-null="true">
+		<type name="integer" length="10"/>
+	</column>
+	<constraint name="UsuariosInscripcion_pk" type="pk-constr" table="public.&quot;UsuariosInscripcion&quot;">
+		<columns names="User,IdInscripcion" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="UsuariosModulos">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="509.154" y="2430.62"/>
+	<column name="User" not-null="true">
+		<type name="character varying" length="20"/>
+	</column>
+	<column name="IdModulo" not-null="true">
+		<type name="integer" length="10"/>
+	</column>
+	<column name="Alta" not-null="true">
+		<type name="boolean" length="1"/>
+	</column>
+	<column name="Baja" not-null="true">
+		<type name="boolean" length="1"/>
+	</column>
+	<column name="Modificacion" not-null="true">
+		<type name="boolean" length="1"/>
+	</column>
+	<column name="Lectura" not-null="true">
+		<type name="boolean" length="1"/>
+	</column>
+	<constraint name="UsuariosModulos_pk" type="pk-constr" table="public.&quot;UsuariosModulos&quot;">
+		<columns names="User,IdModulo" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="IdModulo_Modulos" index="7"/>
+		<object name="User_Usuarios" index="6"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="Modulos_fk" index="2"/>
+		<object name="Usuarios_fk" index="1"/>
+	</customidxs>
+</table>
+
+<table name="PersonasDatos">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="14.835" y="995.122"/>
+	<column name="IdTipoDoc" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="NroDoc" not-null="true">
+		<type name="integer" length="8"/>
+	</column>
+	<column name="Apellido" not-null="true">
+		<type name="character varying" length="70"/>
+	</column>
+	<column name="Nombre" not-null="true">
+		<type name="character varying" length="50"/>
+	</column>
+	<column name="Direccion" not-null="true">
+		<type name="character varying" length="50"/>
+	</column>
+	<column name="IdLocalidad" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="Telefono">
+		<type name="character varying" length="15"/>
+	</column>
+	<column name="Celular">
+		<type name="character varying" length="15"/>
+	</column>
+	<column name="Mail" not-null="true">
+		<type name="character varying" length="50"/>
+	</column>
+	<constraint name="PersonasDatos_pk" type="pk-constr" table="public.&quot;PersonasDatos&quot;">
+		<columns names="IdTipoDoc,NroDoc" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="IdTipoDoc_TipoDocumento" index="9"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="TipoDocumento_fk" index="1"/>
+	</customidxs>
+</table>
+
+<table name="TipoDocumento">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="39.1385" y="1246.48"/>
+	<column name="IdTipoDoc" not-null="true">
+		<type name="serial" length="0"/>
+	</column>
+	<column name="Descripcion" not-null="true">
+		<type name="character varying" length="15"/>
+	</column>
+	<constraint name="TipoDocumento_pk" type="pk-constr" table="public.&quot;TipoDocumento&quot;">
+		<columns names="IdTipoDoc" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="Genero">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1322.31" y="20.3077"/>
+	<column name="IdGenero" not-null="true">
+		<type name="integer" length="10"/>
+	</column>
+	<column name="Descripcion" not-null="true">
+		<type name="character varying" length="50"/>
+	</column>
+	<column name="Baja" not-null="true">
+		<type name="boolean" length="1"/>
+	</column>
+	<column name="FechaBaja">
+		<type name="date" length="0"/>
+	</column>
+	<column name="CausaBaja">
+		<type name="character varying" length="100"/>
+	</column>
+	<constraint name="Genero_pk" type="pk-constr" table="public.&quot;Genero&quot;">
+		<columns names="IdGenero" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="EstadoCivil">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="898.385" y="27.3846"/>
+	<column name="IdEstadoCivil" not-null="true">
+		<type name="integer" length="10"/>
+	</column>
+	<column name="Descripcion" not-null="true">
+		<type name="character varying" length="50"/>
+	</column>
+	<column name="Baja" not-null="true">
+		<type name="boolean" length="1"/>
+	</column>
+	<column name="FechaBaja">
+		<type name="date" length="0"/>
+	</column>
+	<column name="CausaBaja">
+		<type name="character varying" length="100"/>
+	</column>
+	<constraint name="EstadoCivil_pk" type="pk-constr" table="public.&quot;EstadoCivil&quot;">
+		<columns names="IdEstadoCivil" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="Pais">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1743.23" y="462.769"/>
+	<column name="IdPais" not-null="true">
+		<type name="integer" length="10"/>
+	</column>
+	<column name="Descripcion" not-null="true">
+		<type name="character varying" length="50"/>
+	</column>
+	<column name="Baja" not-null="true">
+		<type name="boolean" length="1"/>
+	</column>
+	<column name="FechaBaja">
+		<type name="date" length="0"/>
+	</column>
+	<column name="CausaBaja">
+		<type name="character varying" length="100"/>
+	</column>
+	<constraint name="Pais_pk" type="pk-constr" table="public.&quot;Pais&quot;">
+		<columns names="IdPais" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<textbox name="ASPIRANTES" italic="true" bold="true" underline="true" font-size="10">
+	<position x="22" y="20"/>
+	<comment><![CDATA[ASPIRANTES]]></comment>
+</textbox>
+
+<relationship name="PersonasDatos_has_many_AspiranteFamilia" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;PersonasDatos&quot;"
+	 dst-table="public.&quot;AspiranteFamilia&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="TipoDocumento_has_many_PersonasDatos" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;TipoDocumento&quot;"
+	 dst-table="public.&quot;PersonasDatos&quot;"
+	 src-required="false" dst-required="false"/>
+
+<table name="EncuestadosGral">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1742.72" y="2533.45"/>
+	<column name="IdEncuestado" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="IdEncuesta" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="FechaAltaInstEnc" not-null="true">
+		<type name="date" length="0"/>
+	</column>
+	<column name="Edad" not-null="true">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="IdGenero" not-null="true">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="Cp">
+		<type name="character varying" length="20"/>
+	</column>
+	<column name="IdColegio" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="Idorientacion" not-null="true">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="Pase" not-null="true">
+		<type name="boolean" length="0"/>
+	</column>
+	<column name="IdTipoEstablecimiento">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="IdCarrera">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="Comentarios">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="EncuestadosGral_pk" type="pk-constr" table="public.&quot;EncuestadosGral&quot;">
+		<columns names="IdEncuestado" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="IdCarrera_Carreras" index="12"/>
+		<object name="IdColegio_Colegios" index="14"/>
+		<object name="IdGenero_Genero" index="13"/>
+		<object name="IdOrientacion_Orientacion" index="15"/>
+		<object name="IdTipoEstablecimiento_TiposEstablecimientos" index="16"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="Carreras_fk" index="1"/>
+		<object name="Colegios_fk" index="3"/>
+		<object name="Genero_fk" index="2"/>
+		<object name="Orientacion_fk" index="4"/>
+		<object name="TiposEstablecimientos_fk" index="5"/>
+	</customidxs>
+</table>
+
+<table name="EncuestaPreguntas">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1250.63" y="2593.84"/>
+	<column name="IdPregunta" not-null="true">
+		<type name="serial" length="0"/>
+	</column>
+	<column name="IdEncuesta" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="Pregunta" not-null="true">
+		<type name="character varying" length="200"/>
+	</column>
+	<column name="Orden" not-null="true">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="Baja" not-null="true">
+		<type name="boolean" length="0"/>
+	</column>
+	<column name="FechaBaja">
+		<type name="date" length="0"/>
+	</column>
+	<column name="CausaBaja">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="EncuestaAreaAdmisionPresuntas_pk" type="pk-constr" table="public.&quot;EncuestaPreguntas&quot;">
+		<columns names="IdPregunta" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="IdEncuesta_Encuestas" index="7"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="Encuestas_fk" index="1"/>
+	</customidxs>
+</table>
+
+<table name="EncuestaPreguntasOpciones">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1239.57" y="2825.56"/>
+	<column name="IdOpcionPregunta" not-null="true">
+		<type name="serial" length="0"/>
+	</column>
+	<column name="IdPregunta" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="Orden" not-null="true">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="Opcion" not-null="true">
+		<type name="character varying" length="50"/>
+	</column>
+	<column name="RequiereOtros" not-null="true">
+		<type name="boolean" length="0"/>
+	</column>
+	<column name="Baja" not-null="true">
+		<type name="boolean" length="0"/>
+	</column>
+	<column name="FechaBaja">
+		<type name="date" length="0"/>
+	</column>
+	<column name="CausaBaja">
+		<type name="smallint" length="0"/>
+	</column>
+	<constraint name="EncuestaAreaAdmisionPreguntasOpciones_pk" type="pk-constr" table="public.&quot;EncuestaPreguntasOpciones&quot;">
+		<columns names="IdOpcionPregunta" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="IdPregunta_EncuestaPreguntas" index="8"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="EncuestaPreguntas_fk" index="1"/>
+	</customidxs>
+</table>
+
+<table name="EncuestadosRespuestas">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1811.9" y="2883.71"/>
+	<column name="IdEncuestado" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="IdOpcionPregunta" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="Otros">
+		<type name="character varying" length="200"/>
+	</column>
+	<constraint name="EncuestaAdmisionRespuestas_pk" type="pk-constr" table="public.&quot;EncuestadosRespuestas&quot;">
+		<columns names="IdEncuestado,IdOpcionPregunta" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="IdEncuestado_EncuestadosGral" index="4"/>
+		<object name="IdOpcionPregunta_EncuestaPreguntasOpciones" index="3"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="EncuestaPreguntasOpciones_fk" index="1"/>
+		<object name="EncuestadosGral_fk" index="2"/>
+	</customidxs>
+</table>
+
+<table name="InstanciasEncuestas">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="884.931" y="2594.46"/>
+	<column name="IdEncuesta" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="FechaAltaInstEnc" not-null="true">
+		<type name="date" length="0"/>
+	</column>
+	<column name="IdCurso" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="IdMateria">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="Legajo">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="FechaCarga" not-null="true">
+		<type name="date" length="0"/>
+	</column>
+	<column name="FechaRealizacion" not-null="true">
+		<type name="date" length="0"/>
+	</column>
+	<constraint name="InstanciasEncuestas_pk" type="pk-constr" table="public.&quot;InstanciasEncuestas&quot;">
+		<columns names="IdEncuesta,FechaAltaInstEnc" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="IdCurso_InstanciasCursos" index="8"/>
+		<object name="IdEncuesta_Encuestas" index="7"/>
+		<object name="IdMateria_Materias" index="9"/>
+		<object name="Legajo_Docentes" index="10"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="Docentes_fk" index="3"/>
+		<object name="Encuestas_fk" index="0"/>
+		<object name="InstanciasCursos_fk" index="1"/>
+		<object name="Materias_fk" index="2"/>
+	</customidxs>
+</table>
+
+<table name="Docentes">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="494.62" y="1311.66"/>
+	<column name="Legajo" not-null="true">
+		<type name="integer" length="15"/>
+	</column>
+	<column name="IdTipoDoc" not-null="true">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="NroDoc" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="IdTitulo" not-null="true">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="Baja" not-null="true">
+		<type name="boolean" length="0"/>
+	</column>
+	<column name="FechaBaja">
+		<type name="date" length="0"/>
+	</column>
+	<column name="CausaBaja">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="Docentes_pk" type="pk-constr" table="public.&quot;Docentes&quot;">
+		<columns names="Legajo" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="DocentesMaterias">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="530.062" y="1526.52"/>
+	<column name="Legajo" not-null="true">
+		<type name="integer" length="15"/>
+	</column>
+	<column name="IdMateria" not-null="true">
+		<type name="smallint" length="0"/>
+	</column>
+	<constraint name="DocentesMaterias_pk" type="pk-constr" table="public.&quot;DocentesMaterias&quot;">
+		<columns names="Legajo,IdMateria" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="Area">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="904.452" y="945.7"/>
+	<column name="IdArea" not-null="true">
+		<type name="serial" length="0"/>
+	</column>
+	<column name="Descripcion" not-null="true">
+		<type name="character varying" length="70"/>
+	</column>
+	<column name="Baja" not-null="true">
+		<type name="boolean" length="0"/>
+	</column>
+	<column name="FechaBaja">
+		<type name="date" length="0"/>
+	</column>
+	<column name="CausaBaja">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="Area_pk" type="pk-constr" table="public.&quot;Area&quot;">
+		<columns names="IdArea" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="Docentes_has_one_PersonasDatos" type="rel11"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;PersonasDatos&quot;"
+	 dst-table="public.&quot;Docentes&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Docentes_has_many_DocentesMaterias" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;Docentes&quot;"
+	 dst-table="public.&quot;DocentesMaterias&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Inscripcion_has_many_InscripcionCarreras" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;Inscripcion&quot;"
+	 dst-table="public.&quot;InscripcionCarreras&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Carreras_has_many_InscripcionCarreras" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;Carreras&quot;"
+	 dst-table="public.&quot;InscripcionCarreras&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="TipoCarrera_has_many_Carreras" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;TipoCarrera&quot;"
+	 dst-table="public.&quot;Carreras&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Inscripcion_has_many_Instancias" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;Inscripcion&quot;"
+	 dst-table="public.&quot;InstanciasInscripcion&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Instancias_has_many_InstanciasTurnos" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;InstanciasInscripcion&quot;"
+	 dst-table="public.&quot;InstanciasInscripcionTurnos&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Instancias_has_many_InstanciasMaterias" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;InstanciasInscripcion&quot;"
+	 dst-table="public.&quot;InstanciasInscripcionMaterias&quot;"
+	 src-required="false" dst-required="false">
+	<label ref-type="name-label">
+		<position x="0" y="0"/>
+	</label>
+</relationship>
+
+<relationship name="Instancias_has_many_InstanciasAnexos" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;InstanciasInscripcion&quot;"
+	 dst-table="public.&quot;InstanciasInscripcionAnexos&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Instancias_has_many_InstanciasModalidad" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;InstanciasInscripcion&quot;"
+	 dst-table="public.&quot;InstanciasInscripcionModalidad&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Instancias_has_many_InstanciasCursos" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;InstanciasInscripcion&quot;"
+	 dst-table="public.&quot;InstanciasCursos&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Materias_has_many_InstanciasMaterias" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;Materias&quot;"
+	 dst-table="public.&quot;InstanciasInscripcionMaterias&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="InstanciasCursos_has_many_InstanciasCursosAlumnos" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;InstanciasCursos&quot;"
+	 dst-table="public.&quot;InstanciasCursosAlumnos&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="InstanciasCursos_has_many_InstanciasCursosMaterias" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;InstanciasCursos&quot;"
+	 dst-table="public.&quot;InstanciasCursosMaterias&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="InstanciasCursos_has_many_InstanciasCursosAlumnosMaterias" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;InstanciasCursos&quot;"
+	 dst-table="public.&quot;InstanciasCursosAlumnosMaterias&quot;"
+	 src-required="false" dst-required="false">
+	<label ref-type="name-label">
+		<position x="163.515" y="5.00947"/>
+	</label>
+</relationship>
+
+<relationship name="InstanciasCursos_has_many_InstaciasCursosPresentismo" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;InstanciasCursos&quot;"
+	 dst-table="public.&quot;InstaciasCursosPresentismo&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="InstanciasCursosMaterias_has_many_InstaciasCursosPresentismo" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;InstanciasCursosMaterias&quot;"
+	 dst-table="public.&quot;InstaciasCursosPresentismo&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="InstanciasCursosMaterias_has_many_InstanciasCursosAlumnosMateri" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;InstanciasCursosMaterias&quot;"
+	 dst-table="public.&quot;InstanciasCursosAlumnosMaterias&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="InstanciasCursosAlumnosMaterias_has_many_InstaciasCursosPresent" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;InstanciasCursosAlumnosMaterias&quot;"
+	 dst-table="public.&quot;InstaciasCursosPresentismo&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="InstanciasCursosAlumnos_has_many_InstaciasCursosPresentismo" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;InstanciasCursosAlumnos&quot;"
+	 dst-table="public.&quot;InstaciasCursosPresentismo&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="InstanciasCursosAlumnos_has_many_InstanciasCursosAlumnosMateria" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;InstanciasCursosAlumnos&quot;"
+	 dst-table="public.&quot;InstanciasCursosAlumnosMaterias&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="InstanciasCursos_has_many_InstanciasCursosMateriasExamenes" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;InstanciasCursos&quot;"
+	 dst-table="public.&quot;InstanciasCursosMateriasExamenes&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="InstanciasCursos_has_many_InstanciasCursosAlumnosExamenes" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;InstanciasCursos&quot;"
+	 dst-table="public.&quot;InstanciasCursosAlumnosExamenes&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="InstanciasCursosAlumnos_has_many_InstanciasCursosAlumnosExamene" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;InstanciasCursosAlumnos&quot;"
+	 dst-table="public.&quot;InstanciasCursosAlumnosExamenes&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="InstanciasCursosAlumnosMaterias_has_many_InstanciasCursosAlumno" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;InstanciasCursosAlumnosMaterias&quot;"
+	 dst-table="public.&quot;InstanciasCursosAlumnosExamenes&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="InstanciasCursosMateriasExamenes_has_many_InstanciasCursosAlumn" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;InstanciasCursosMateriasExamenes&quot;"
+	 dst-table="public.&quot;InstanciasCursosAlumnosExamenes&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="InstanciasCursosMaterias_has_many_InstanciasCursosAlumnosExamen" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;InstanciasCursosMaterias&quot;"
+	 dst-table="public.&quot;InstanciasCursosAlumnosExamenes&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Materias_has_many_InstanciasCursosMaterias" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;Materias&quot;"
+	 dst-table="public.&quot;InstanciasCursosMaterias&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Materias_has_many_InstanciasCursosAlumnosMaterias" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;Materias&quot;"
+	 dst-table="public.&quot;InstanciasCursosAlumnosMaterias&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Materias_has_many_InstanciasCursosMateriasExamenes" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;Materias&quot;"
+	 dst-table="public.&quot;InstanciasCursosMateriasExamenes&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Materias_has_many_InstanciasCursosAlumnosExamenes" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;Materias&quot;"
+	 dst-table="public.&quot;InstanciasCursosAlumnosExamenes&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Usuarios_has_one_PersonasDatos" type="rel11"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;PersonasDatos&quot;"
+	 dst-table="public.&quot;Usuarios&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Usuarios_has_many_UsuariosCarreras" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;Usuarios&quot;"
+	 dst-table="public.&quot;UsuariosCarreras&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Usuarios_has_many_UsuariosModulos" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;Usuarios&quot;"
+	 dst-table="public.&quot;UsuariosModulos&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Usuarios_has_many_UsuariosInscripcion" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;Usuarios&quot;"
+	 dst-table="public.&quot;UsuariosInscripcion&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Modulos_has_many_UsuariosModulos" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;Modulos&quot;"
+	 dst-table="public.&quot;UsuariosModulos&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Carreras_has_many_UsuariosCarreras" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;Carreras&quot;"
+	 dst-table="public.&quot;UsuariosCarreras&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="EncuestaPresuntas_has_many_EncuestaPreguntasOpciones" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;EncuestaPreguntas&quot;"
+	 dst-table="public.&quot;EncuestaPreguntasOpciones&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="EncuestadosGral_has_many_EncuestadosRespuestas" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;EncuestadosGral&quot;"
+	 dst-table="public.&quot;EncuestadosRespuestas&quot;"
+	 src-required="false" dst-required="false"/>
+
+<table name="Encuestas">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="883.131" y="2803.64"/>
+	<column name="IdEncuesta" not-null="true">
+		<type name="serial" length="0"/>
+	</column>
+	<column name="IdArea" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="Descripcion" not-null="true">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="Baja" not-null="true">
+		<type name="boolean" length="0"/>
+	</column>
+	<column name="FechaBaja">
+		<type name="date" length="0"/>
+	</column>
+	<column name="CausaBaja">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="Encuestas_pk" type="pk-constr" table="public.&quot;Encuestas&quot;">
+		<columns names="IdEncuesta" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="Encuestas_has_many_InstanciasEncuestas" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;Encuestas&quot;"
+	 dst-table="public.&quot;InstanciasEncuestas&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Encuestas_has_many_EncuestaPresuntas" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;Encuestas&quot;"
+	 dst-table="public.&quot;EncuestaPreguntas&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="InstanciasCursos_has_many_InstanciasEncuestas" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;InstanciasCursos&quot;"
+	 dst-table="public.&quot;InstanciasEncuestas&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Materias_has_many_InstanciasEncuestas" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;Materias&quot;"
+	 dst-table="public.&quot;InstanciasEncuestas&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Docentes_has_many_InstanciasEncuestas" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;Docentes&quot;"
+	 dst-table="public.&quot;InstanciasEncuestas&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Area_has_many_Encuestas" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;Area&quot;"
+	 dst-table="public.&quot;Encuestas&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Carreras_has_many_EncuestadosGral" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;Carreras&quot;"
+	 dst-table="public.&quot;EncuestadosGral&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Genero_has_many_EncuestadosGral" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;Genero&quot;"
+	 dst-table="public.&quot;EncuestadosGral&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Colegios_has_many_EncuestadosGral" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;Colegios&quot;"
+	 dst-table="public.&quot;EncuestadosGral&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Orientacion_has_many_EncuestadosGral" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;Orientacion&quot;"
+	 dst-table="public.&quot;EncuestadosGral&quot;"
+	 src-required="false" dst-required="false"/>
+
+<table name="TiposEstablecimientos">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1773.85" y="330.307"/>
+	<column name="IdTipoEstablecimiento" not-null="true">
+		<type name="serial" length="10"/>
+	</column>
+	<column name="Descripcion" not-null="true">
+		<type name="character varying" length="50"/>
+	</column>
+	<column name="Baja" not-null="true">
+		<type name="boolean" length="1"/>
+	</column>
+	<column name="FechaBaja">
+		<type name="date" length="0"/>
+	</column>
+	<column name="CausaBaja">
+		<type name="character varying" length="100"/>
+	</column>
+	<constraint name="Genero_pk" type="pk-constr" table="public.&quot;TiposEstablecimientos&quot;">
+		<columns names="IdTipoEstablecimiento" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="TiposEstablecimientos_has_many_EncuestadosGral" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;TiposEstablecimientos&quot;"
+	 dst-table="public.&quot;EncuestadosGral&quot;"
+	 src-required="false" dst-required="false"/>
+
+<table name="TiposEvaluaciones">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="2152.03" y="852.307"/>
+	<column name="IdTipoEvaluacion" not-null="true">
+		<type name="serial" length="10"/>
+	</column>
+	<column name="Descripcion" not-null="true">
+		<type name="character varying" length="50"/>
+	</column>
+	<column name="Baja" not-null="true">
+		<type name="boolean" length="1"/>
+	</column>
+	<column name="FechaBaja">
+		<type name="date" length="0"/>
+	</column>
+	<column name="CausaBaja">
+		<type name="character varying" length="100"/>
+	</column>
+	<constraint name="Genero_pk" type="pk-constr" table="public.&quot;TiposEvaluaciones&quot;">
+		<columns names="IdTipoEvaluacion" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="TiposCalificaciones">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1738.67" y="846.492"/>
+	<column name="IdTipoCalificacion" not-null="true">
+		<type name="serial" length="10"/>
+	</column>
+	<column name="Descripcion" not-null="true">
+		<type name="character varying" length="50"/>
+	</column>
+	<column name="Baja" not-null="true">
+		<type name="boolean" length="1"/>
+	</column>
+	<column name="FechaBaja">
+		<type name="date" length="0"/>
+	</column>
+	<column name="CausaBaja">
+		<type name="character varying" length="100"/>
+	</column>
+	<constraint name="Genero_pk" type="pk-constr" table="public.&quot;TiposCalificaciones&quot;">
+		<columns names="IdTipoCalificacion" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="TiposEvaluaciones_has_many_InstanciasCursosMateriasExamenes" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;TiposEvaluaciones&quot;"
+	 dst-table="public.&quot;InstanciasCursosMateriasExamenes&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="TiposCalificaciones_has_many_InstanciasCursosMaterias" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;TiposCalificaciones&quot;"
+	 dst-table="public.&quot;InstanciasCursosMaterias&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="AspiranteInscripcion_has_many_AspiranteFamilia" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;AspiranteInscripcion&quot;"
+	 dst-table="public.&quot;AspiranteFamilia&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Carreras_has_many_AspiranteInscripcion" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;Carreras&quot;"
+	 dst-table="public.&quot;AspiranteInscripcion&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Anexo_has_many_AspiranteInscripcion" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;Anexo&quot;"
+	 dst-table="public.&quot;AspiranteInscripcion&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Modalidad_has_many_AspiranteInscripcion" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;Modalidad&quot;"
+	 dst-table="public.&quot;AspiranteInscripcion&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Turnos_has_many_AspiranteInscripcion" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;Turnos&quot;"
+	 dst-table="public.&quot;AspiranteInscripcion&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Localidad_has_many_AspiranteInscripcion" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;Localidad&quot;"
+	 dst-table="public.&quot;AspiranteInscripcion&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Genero_has_many_AspiranteInscripcion" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;Genero&quot;"
+	 dst-table="public.&quot;AspiranteInscripcion&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Pais_has_many_AspiranteInscripcion" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;Pais&quot;"
+	 dst-table="public.&quot;AspiranteInscripcion&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="EstadoCivil_has_many_AspiranteInscripcion" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;EstadoCivil&quot;"
+	 dst-table="public.&quot;AspiranteInscripcion&quot;"
+	 src-required="false" dst-required="false"/>
+
+<table name="NivelEstudios">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="2186.15" y="388.693"/>
+	<column name="IdNivelEstaudio" not-null="true">
+		<type name="integer" length="10"/>
+	</column>
+	<column name="Descripcion" not-null="true">
+		<type name="character varying" length="50"/>
+	</column>
+	<column name="Baja" not-null="true">
+		<type name="boolean" length="1"/>
+	</column>
+	<column name="FechaBaja">
+		<type name="date" length="0"/>
+	</column>
+	<column name="CausaBaja">
+		<type name="character varying" length="100"/>
+	</column>
+	<constraint name="NivelEstudios_pk" type="pk-constr" table="public.&quot;NivelEstudios&quot;">
+		<columns names="IdNivelEstaudio" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="TiposEstudios_has_many_AspiranteInscripcion" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;NivelEstudios&quot;"
+	 dst-table="public.&quot;AspiranteInscripcion&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Titulos_has_many_AspiranteInscripcion" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;Titulos&quot;"
+	 dst-table="public.&quot;AspiranteInscripcion&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Titulos_has_many_Orientacion" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;Titulos&quot;"
+	 dst-table="public.&quot;Orientacion&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Orientacion_has_many_AspiranteInscripcion" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;Orientacion&quot;"
+	 dst-table="public.&quot;AspiranteInscripcion&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Colegios_has_many_AspiranteInscripcion" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;Colegios&quot;"
+	 dst-table="public.&quot;AspiranteInscripcion&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="TiposEstablecimientos_has_many_AspiranteInscripcion" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;TiposEstablecimientos&quot;"
+	 dst-table="public.&quot;AspiranteInscripcion&quot;"
+	 src-required="false" dst-required="false"/>
+
+<table name="Ocupaciones">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="896.924" y="180.308"/>
+	<column name="IdOcupacion" not-null="true">
+		<type name="serial" length="10"/>
+	</column>
+	<column name="Descripcion" not-null="true">
+		<type name="character varying" length="50"/>
+	</column>
+	<column name="Baja" not-null="true">
+		<type name="boolean" length="1"/>
+	</column>
+	<column name="FechaBaja">
+		<type name="date" length="0"/>
+	</column>
+	<column name="CausaBaja">
+		<type name="character varying" length="100"/>
+	</column>
+	<constraint name="Genero_pk" type="pk-constr" table="public.&quot;Ocupaciones&quot;">
+		<columns names="IdOcupacion" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="Cargos">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1325.38" y="162.615"/>
+	<column name="IdCargo" not-null="true">
+		<type name="serial" length="10"/>
+	</column>
+	<column name="Descripcion" not-null="true">
+		<type name="character varying" length="50"/>
+	</column>
+	<column name="Baja" not-null="true">
+		<type name="boolean" length="1"/>
+	</column>
+	<column name="FechaBaja">
+		<type name="date" length="0"/>
+	</column>
+	<column name="CausaBaja">
+		<type name="character varying" length="100"/>
+	</column>
+	<constraint name="Genero_pk" type="pk-constr" table="public.&quot;Cargos&quot;">
+		<columns names="IdCargo" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="TiposRealaciones">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1319.23" y="299.538"/>
+	<column name="IdTipoRealacion" not-null="true">
+		<type name="serial" length="10"/>
+	</column>
+	<column name="Descripcion" not-null="true">
+		<type name="character varying" length="50"/>
+	</column>
+	<column name="Baja" not-null="true">
+		<type name="boolean" length="1"/>
+	</column>
+	<column name="FechaBaja">
+		<type name="date" length="0"/>
+	</column>
+	<column name="CausaBaja">
+		<type name="character varying" length="100"/>
+	</column>
+	<constraint name="Genero_pk" type="pk-constr" table="public.&quot;TiposRealaciones&quot;">
+		<columns names="IdTipoRealacion" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="HorasSemanales">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="903.842" y="641.846"/>
+	<column name="IdHoraSemanal" not-null="true">
+		<type name="serial" length="10"/>
+	</column>
+	<column name="Descripcion" not-null="true">
+		<type name="character varying" length="50"/>
+	</column>
+	<column name="Baja" not-null="true">
+		<type name="boolean" length="1"/>
+	</column>
+	<column name="FechaBaja">
+		<type name="date" length="0"/>
+	</column>
+	<column name="CausaBaja">
+		<type name="character varying" length="100"/>
+	</column>
+	<constraint name="Genero_pk" type="pk-constr" table="public.&quot;HorasSemanales&quot;">
+		<columns names="IdHoraSemanal" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="Ocupaciones_has_many_AspiranteInscripcion" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;Ocupaciones&quot;"
+	 dst-table="public.&quot;AspiranteInscripcion&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Cargos_has_many_AspiranteInscripcion" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;Cargos&quot;"
+	 dst-table="public.&quot;AspiranteInscripcion&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="HorasSemanales_has_many_AspiranteInscripcion" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;HorasSemanales&quot;"
+	 dst-table="public.&quot;AspiranteInscripcion&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="TiposRealaciones_has_many_AspiranteInscripcion" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;TiposRealaciones&quot;"
+	 dst-table="public.&quot;AspiranteInscripcion&quot;"
+	 src-required="false" dst-required="false"/>
+
+<table name="EncuestaRga">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1332.64" y="799.477"/>
+	<column name="IdMedio" not-null="true">
+		<type name="serial" length="10"/>
+	</column>
+	<column name="Descripcion" not-null="true">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="Baja" not-null="true">
+		<type name="boolean" length="1"/>
+	</column>
+	<column name="FechaBaja">
+		<type name="date" length="0"/>
+	</column>
+	<column name="CausaBaja">
+		<type name="character varying" length="100"/>
+	</column>
+	<constraint name="Genero_pk" type="pk-constr" table="public.&quot;EncuestaRga&quot;">
+		<columns names="IdMedio" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="EncuestaRgaOpciones">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="884.578" y="791.323"/>
+	<column name="IdOpcionEncuestaRga" not-null="true">
+		<type name="serial" length="0"/>
+	</column>
+	<column name="IdMedio">
+		<type name="serial" length="10"/>
+	</column>
+	<column name="Descripcion" not-null="true">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="Baja" not-null="true">
+		<type name="boolean" length="1"/>
+	</column>
+	<column name="FechaBaja">
+		<type name="date" length="0"/>
+	</column>
+	<column name="CausaBaja">
+		<type name="character varying" length="100"/>
+	</column>
+	<constraint name="EncuestaRgaOpciones_pk" type="pk-constr" table="public.&quot;EncuestaRgaOpciones&quot;">
+		<columns names="IdOpcionEncuestaRga" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="EncuestaRga_has_many_EncuestaRgaOpciones" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;EncuestaRga&quot;"
+	 dst-table="public.&quot;EncuestaRgaOpciones&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="EncuestaRgaOpciones_has_many_AspiranteInscripcion" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;EncuestaRgaOpciones&quot;"
+	 dst-table="public.&quot;AspiranteInscripcion&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="EncuestaPreguntasOpciones_has_many_EncuestadosRespuestas" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;EncuestaPreguntasOpciones&quot;"
+	 dst-table="public.&quot;EncuestadosRespuestas&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Partido_has_many_Localidad" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;Partido&quot;"
+	 dst-table="public.&quot;Localidad&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Provincia_has_many_Partido" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;Provincia&quot;"
+	 dst-table="public.&quot;Partido&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Pais_has_many_Provincia" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;Pais&quot;"
+	 dst-table="public.&quot;Provincia&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Localidad_has_many_Colegios" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;Localidad&quot;"
+	 dst-table="public.&quot;Colegios&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="TiposEstablecimientos_has_many_Colegios" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;TiposEstablecimientos&quot;"
+	 dst-table="public.&quot;Colegios&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="TiposEstudios_has_many_Colegios" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;NivelEstudios&quot;"
+	 dst-table="public.&quot;Colegios&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="PersonasDatos_has_many_InstanciasCursosAlumnos" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;PersonasDatos&quot;"
+	 dst-table="public.&quot;InstanciasCursosAlumnos&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="PersonasDatos_has_many_InstaciasCursosPresentismo" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;PersonasDatos&quot;"
+	 dst-table="public.&quot;InstaciasCursosPresentismo&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="PersonasDatos_has_many_InstanciasCursosAlumnosMaterias" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;PersonasDatos&quot;"
+	 dst-table="public.&quot;InstanciasCursosAlumnosMaterias&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="PersonasDatos_has_many_InstanciasCursosAlumnosExamenes" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;PersonasDatos&quot;"
+	 dst-table="public.&quot;InstanciasCursosAlumnosExamenes&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="TipoDocumento_has_many_Usuarios" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;TipoDocumento&quot;"
+	 dst-table="public.&quot;Usuarios&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Inscripcion_has_many_UsuariosInscripcion" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;Inscripcion&quot;"
+	 dst-table="public.&quot;UsuariosInscripcion&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Localidad_has_many_PersonasDatos" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;Localidad&quot;"
+	 dst-table="public.&quot;PersonasDatos&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="TipoDocumento_has_many_AspiranteInscripcion" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;TipoDocumento&quot;"
+	 dst-table="public.&quot;AspiranteInscripcion&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="PersonasDatos_has_many_AspiranteInscripcion" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;PersonasDatos&quot;"
+	 dst-table="public.&quot;AspiranteInscripcion&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="TipoDocumento_has_many_AspiranteFamilia" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;TipoDocumento&quot;"
+	 dst-table="public.&quot;AspiranteFamilia&quot;"
+	 src-required="false" dst-required="false"/>
+
+<table name="TiposIntegrantes">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="886.809" y="1080.47"/>
+	<column name="IdTipoIntegrante" not-null="true">
+		<type name="serial" length="10"/>
+	</column>
+	<column name="Descripcion" not-null="true">
+		<type name="character varying" length="50"/>
+	</column>
+	<column name="Baja" not-null="true">
+		<type name="boolean" length="1"/>
+	</column>
+	<column name="FechaBaja">
+		<type name="date" length="0"/>
+	</column>
+	<column name="CausaBaja">
+		<type name="character varying" length="100"/>
+	</column>
+	<constraint name="TiposIntegrantes_pk" type="pk-constr" table="public.&quot;TiposIntegrantes&quot;">
+		<columns names="IdTipoIntegrante" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="TiposIntegrantes_has_many_AspiranteFamilia" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;TiposIntegrantes&quot;"
+	 dst-table="public.&quot;AspiranteFamilia&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="NivelEstudios_has_many_AspiranteFamilia" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;NivelEstudios&quot;"
+	 dst-table="public.&quot;AspiranteFamilia&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Ocupaciones_has_many_AspiranteFamilia" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;Ocupaciones&quot;"
+	 dst-table="public.&quot;AspiranteFamilia&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="TipoDocumento_has_many_Docentes" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;TipoDocumento&quot;"
+	 dst-table="public.&quot;Docentes&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Titulos_has_many_Docentes" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;Titulos&quot;"
+	 dst-table="public.&quot;Docentes&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Materias_has_many_DocentesMaterias" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;Materias&quot;"
+	 dst-table="public.&quot;DocentesMaterias&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Turnos_has_many_InstanciasTurnos" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;Turnos&quot;"
+	 dst-table="public.&quot;InstanciasInscripcionTurnos&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Modalidad_has_many_InstanciasModalidad" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;Modalidad&quot;"
+	 dst-table="public.&quot;InstanciasInscripcionModalidad&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Anexo_has_many_InstanciasAnexos" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;Anexo&quot;"
+	 dst-table="public.&quot;InstanciasInscripcionAnexos&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Modalidad_has_many_InstanciasCursos" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;Modalidad&quot;"
+	 dst-table="public.&quot;InstanciasCursos&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="TipoDocumento_has_many_InstaciasCursosPresentismo" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;TipoDocumento&quot;"
+	 dst-table="public.&quot;InstaciasCursosPresentismo&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="TipoDocumento_has_many_InstanciasCursosAlumnosExamenes" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;TipoDocumento&quot;"
+	 dst-table="public.&quot;InstanciasCursosAlumnosExamenes&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="TipoDocumento_has_many_InstanciasCursosAlumnosMaterias" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;TipoDocumento&quot;"
+	 dst-table="public.&quot;InstanciasCursosAlumnosMaterias&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="TipoDocumento_has_many_InstanciasCursosAlumnos" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;TipoDocumento&quot;"
+	 dst-table="public.&quot;InstanciasCursosAlumnos&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="InstanciasCursosAlumnos_has_one_AspiranteInscripcion" type="rel11"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;AspiranteInscripcion&quot;"
+	 dst-table="public.&quot;InstanciasCursosAlumnos&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="AspiranteInscripcion_has_many_InstaciasCursosPresentismo" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;AspiranteInscripcion&quot;"
+	 dst-table="public.&quot;InstaciasCursosPresentismo&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="AspiranteInscripcion_has_many_InstanciasCursosAlumnosMaterias" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;AspiranteInscripcion&quot;"
+	 dst-table="public.&quot;InstanciasCursosAlumnosMaterias&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="AspiranteInscripcion_has_many_InstanciasCursosAlumnosExamenes" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;AspiranteInscripcion&quot;"
+	 dst-table="public.&quot;InstanciasCursosAlumnosExamenes&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="InstanciasInscripcion_has_many_InstaciasCursosPresentismo" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;InstanciasInscripcion&quot;"
+	 dst-table="public.&quot;InstaciasCursosPresentismo&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="InstanciasInscripcion_has_many_InstanciasCursosAlumnos" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;InstanciasInscripcion&quot;"
+	 dst-table="public.&quot;InstanciasCursosAlumnos&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="InstanciasInscripcion_has_many_InstanciasCursosAlumnosMaterias" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;InstanciasInscripcion&quot;"
+	 dst-table="public.&quot;InstanciasCursosAlumnosMaterias&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="InstanciasInscripcion_has_many_InstanciasCursosAlumnosExamenes" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;InstanciasInscripcion&quot;"
+	 dst-table="public.&quot;InstanciasCursosAlumnosExamenes&quot;"
+	 src-required="false" dst-required="false"/>
+
+</dbmodel>
