@@ -62,6 +62,48 @@
     <Compile Include="frmCarrerasABM.Designer.cs">
       <DependentUpon>frmCarrerasABM.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmEncuestaABM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEncuestaABM.Designer.cs">
+      <DependentUpon>frmEncuestaABM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEncuestaGeneral.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEncuestaGeneral.Designer.cs">
+      <DependentUpon>frmEncuestaGeneral.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEncuestaPreguntaABM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEncuestaPreguntaABM.Designer.cs">
+      <DependentUpon>frmEncuestaPreguntaABM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEncuestaPreguntaOpcionABM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEncuestaPreguntaOpcionABM.Designer.cs">
+      <DependentUpon>frmEncuestaPreguntaOpcionABM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEncuestas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEncuestas.Designer.cs">
+      <DependentUpon>frmEncuestas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmInstancias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInstancias.Designer.cs">
+      <DependentUpon>frmInstancias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmInstanciasEncuestasABM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInstanciasEncuestasABM.Designer.cs">
+      <DependentUpon>frmInstanciasEncuestasABM.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +129,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCarrerasABM.resx">
       <DependentUpon>frmCarrerasABM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEncuestaABM.resx">
+      <DependentUpon>frmEncuestaABM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEncuestaGeneral.resx">
+      <DependentUpon>frmEncuestaGeneral.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEncuestaPreguntaABM.resx">
+      <DependentUpon>frmEncuestaPreguntaABM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEncuestaPreguntaOpcionABM.resx">
+      <DependentUpon>frmEncuestaPreguntaOpcionABM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEncuestas.resx">
+      <DependentUpon>frmEncuestas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInstancias.resx">
+      <DependentUpon>frmInstancias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInstanciasEncuestasABM.resx">
+      <DependentUpon>frmInstanciasEncuestasABM.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>

@@ -10,12 +10,11 @@ using System.Windows.Forms;
 
 namespace Presentacion
 {
-    public partial class frmCarreras : Form
+    public partial class frmInstancias : Form
     {
-        public frmCarreras()
+        public frmInstancias()
         {
             InitializeComponent();
-            
         }
 
         private void button1_Click(object sender, EventArgs e)
