@@ -89,17 +89,15 @@
             // 
             // panelMarco
             // 
-            this.panelMarco.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelMarco.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(186)))), ((int)(((byte)(189)))));
             this.panelMarco.Controls.Add(this.btnVolver);
             this.panelMarco.Controls.Add(this.panel1);
             this.panelMarco.Controls.Add(this.dataGridView1);
             this.panelMarco.Controls.Add(this.panelBarraTitulo);
-            this.panelMarco.Location = new System.Drawing.Point(2, 2);
+            this.panelMarco.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelMarco.Location = new System.Drawing.Point(0, 0);
             this.panelMarco.Name = "panelMarco";
-            this.panelMarco.Size = new System.Drawing.Size(684, 329);
+            this.panelMarco.Size = new System.Drawing.Size(688, 334);
             this.panelMarco.TabIndex = 0;
             // 
             // btnVolver
@@ -317,21 +315,21 @@
             this.nuevoToolStripMenuItem.Name = "nuevoToolStripMenuItem";
             this.nuevoToolStripMenuItem.ShortcutKeyDisplayString = "Alt+N";
             this.nuevoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.N)));
-            this.nuevoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.nuevoToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.nuevoToolStripMenuItem.Text = "&Nuevo";
             this.nuevoToolStripMenuItem.Click += new System.EventHandler(this.nuevoToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(163, 6);
             // 
             // esitarToolStripMenuItem
             // 
             this.esitarToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("esitarToolStripMenuItem.Image")));
             this.esitarToolStripMenuItem.Name = "esitarToolStripMenuItem";
             this.esitarToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.M)));
-            this.esitarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.esitarToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.esitarToolStripMenuItem.Text = "&Modificar";
             // 
             // eliminarToolStripMenuItem
@@ -339,19 +337,19 @@
             this.eliminarToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("eliminarToolStripMenuItem.Image")));
             this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
             this.eliminarToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.E)));
-            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.eliminarToolStripMenuItem.Text = "&Eliminar";
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(163, 6);
             // 
             // acercaDeToolStripMenuItem
             // 
             this.acercaDeToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("acercaDeToolStripMenuItem.Image")));
             this.acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
-            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.acercaDeToolStripMenuItem.Text = "Exportar ...";
             // 
             // dataGridView1
@@ -373,7 +371,7 @@
             this.panelBarraTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelBarraTitulo.Location = new System.Drawing.Point(0, 0);
             this.panelBarraTitulo.Name = "panelBarraTitulo";
-            this.panelBarraTitulo.Size = new System.Drawing.Size(684, 30);
+            this.panelBarraTitulo.Size = new System.Drawing.Size(688, 30);
             this.panelBarraTitulo.TabIndex = 1;
             this.panelBarraTitulo.Paint += new System.Windows.Forms.PaintEventHandler(this.panelBarraTitulo_Paint);
             // 
@@ -394,7 +392,7 @@
             this.btnMaximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMaximizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMaximizar.Image = ((System.Drawing.Image)(resources.GetObject("btnMaximizar.Image")));
-            this.btnMaximizar.Location = new System.Drawing.Point(631, 5);
+            this.btnMaximizar.Location = new System.Drawing.Point(635, 5);
             this.btnMaximizar.Name = "btnMaximizar";
             this.btnMaximizar.Padding = new System.Windows.Forms.Padding(2);
             this.btnMaximizar.Size = new System.Drawing.Size(20, 20);
@@ -409,7 +407,7 @@
             this.btnRestaurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRestaurar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRestaurar.Image = ((System.Drawing.Image)(resources.GetObject("btnRestaurar.Image")));
-            this.btnRestaurar.Location = new System.Drawing.Point(631, 5);
+            this.btnRestaurar.Location = new System.Drawing.Point(635, 5);
             this.btnRestaurar.Name = "btnRestaurar";
             this.btnRestaurar.Padding = new System.Windows.Forms.Padding(2);
             this.btnRestaurar.Size = new System.Drawing.Size(20, 20);
@@ -425,7 +423,7 @@
             this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
-            this.btnCerrar.Location = new System.Drawing.Point(653, 5);
+            this.btnCerrar.Location = new System.Drawing.Point(657, 5);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Padding = new System.Windows.Forms.Padding(2);
             this.btnCerrar.Size = new System.Drawing.Size(20, 20);
@@ -440,7 +438,7 @@
             this.btnMinimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMinimizar.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimizar.Image")));
-            this.btnMinimizar.Location = new System.Drawing.Point(609, 5);
+            this.btnMinimizar.Location = new System.Drawing.Point(613, 5);
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Padding = new System.Windows.Forms.Padding(2);
             this.btnMinimizar.Size = new System.Drawing.Size(20, 20);

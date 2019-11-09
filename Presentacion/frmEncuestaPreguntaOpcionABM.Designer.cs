@@ -96,7 +96,7 @@
             this.panelDatos.Controls.Add(this.txtNombre);
             this.panelDatos.Location = new System.Drawing.Point(10, 38);
             this.panelDatos.Name = "panelDatos";
-            this.panelDatos.Size = new System.Drawing.Size(481, 132);
+            this.panelDatos.Size = new System.Drawing.Size(481, 133);
             this.panelDatos.TabIndex = 13;
             // 
             // textBox1
@@ -230,7 +230,7 @@
             this.panelBaja.Controls.Add(this.btnDown);
             this.panelBaja.Location = new System.Drawing.Point(10, 190);
             this.panelBaja.Name = "panelBaja";
-            this.panelBaja.Size = new System.Drawing.Size(481, 22);
+            this.panelBaja.Size = new System.Drawing.Size(481, 23);
             this.panelBaja.TabIndex = 9;
             // 
             // lblCausa

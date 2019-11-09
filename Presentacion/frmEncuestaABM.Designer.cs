@@ -119,7 +119,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(351, 202);
+            this.pictureBox3.Location = new System.Drawing.Point(429, 199);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Padding = new System.Windows.Forms.Padding(2);
             this.pictureBox3.Size = new System.Drawing.Size(20, 20);
@@ -134,7 +134,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(325, 202);
+            this.pictureBox2.Location = new System.Drawing.Point(403, 199);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Padding = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Size = new System.Drawing.Size(20, 20);
@@ -149,7 +149,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(299, 202);
+            this.pictureBox1.Location = new System.Drawing.Point(377, 199);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Padding = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Size = new System.Drawing.Size(20, 20);
@@ -165,7 +165,7 @@
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(13, 199);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(263, 23);
+            this.comboBox2.Size = new System.Drawing.Size(340, 23);
             this.comboBox2.TabIndex = 18;
             this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
@@ -190,7 +190,7 @@
             this.textBox1.MaxLength = 50;
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(263, 54);
+            this.textBox1.Size = new System.Drawing.Size(340, 54);
             this.textBox1.TabIndex = 16;
             // 
             // comboBox1

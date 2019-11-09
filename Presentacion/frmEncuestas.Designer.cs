@@ -61,17 +61,17 @@
             this.agregarInstanciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verInstanciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.encuestasDataGridView = new System.Windows.Forms.DataGridView();
-            this.CodigoEncuesta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Area = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaBaja = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CausaBaja = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelBarraTitulo = new System.Windows.Forms.Panel();
             this.lblEncuestas = new System.Windows.Forms.Label();
             this.btnMaximizar = new System.Windows.Forms.PictureBox();
             this.btnRestaurar = new System.Windows.Forms.PictureBox();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.btnMinimizar = new System.Windows.Forms.PictureBox();
+            this.CodigoEncuesta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Area = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaBaja = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CausaBaja = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelContenedor.SuspendLayout();
             this.panelMarco.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -389,33 +389,6 @@
             this.encuestasDataGridView.Size = new System.Drawing.Size(664, 214);
             this.encuestasDataGridView.TabIndex = 2;
             // 
-            // CodigoEncuesta
-            // 
-            this.CodigoEncuesta.HeaderText = "CodigoEncuesta";
-            this.CodigoEncuesta.Name = "CodigoEncuesta";
-            // 
-            // Area
-            // 
-            this.Area.HeaderText = "Area";
-            this.Area.Name = "Area";
-            // 
-            // Descripcion
-            // 
-            this.Descripcion.HeaderText = "Descripcion";
-            this.Descripcion.Name = "Descripcion";
-            this.Descripcion.Width = 150;
-            // 
-            // FechaBaja
-            // 
-            this.FechaBaja.HeaderText = "FechaBaja";
-            this.FechaBaja.Name = "FechaBaja";
-            // 
-            // CausaBaja
-            // 
-            this.CausaBaja.HeaderText = "CausaBaja";
-            this.CausaBaja.Name = "CausaBaja";
-            this.CausaBaja.Width = 150;
-            // 
             // panelBarraTitulo
             // 
             this.panelBarraTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(75)))), ((int)(((byte)(114)))));
@@ -503,6 +476,33 @@
             this.btnMinimizar.TabStop = false;
             this.btnMinimizar.MouseEnter += new System.EventHandler(this.btnMinimizar_MouseEnter);
             this.btnMinimizar.MouseLeave += new System.EventHandler(this.btnMinimizar_MouseLeave);
+            // 
+            // CodigoEncuesta
+            // 
+            this.CodigoEncuesta.HeaderText = "CodigoEncuesta";
+            this.CodigoEncuesta.Name = "CodigoEncuesta";
+            // 
+            // Area
+            // 
+            this.Area.HeaderText = "Area";
+            this.Area.Name = "Area";
+            // 
+            // Descripcion
+            // 
+            this.Descripcion.HeaderText = "Descripcion";
+            this.Descripcion.Name = "Descripcion";
+            this.Descripcion.Width = 150;
+            // 
+            // FechaBaja
+            // 
+            this.FechaBaja.HeaderText = "FechaBaja";
+            this.FechaBaja.Name = "FechaBaja";
+            // 
+            // CausaBaja
+            // 
+            this.CausaBaja.HeaderText = "CausaBaja";
+            this.CausaBaja.Name = "CausaBaja";
+            this.CausaBaja.Width = 150;
             // 
             // frmEncuestas
             // 
