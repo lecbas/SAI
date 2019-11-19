@@ -41,6 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="mdEncuestadosGral.cs" />
+    <Compile Include="mdEncuestadosRespuestas.cs" />
+    <Compile Include="mdEncuestaPreguntas.cs" />
+    <Compile Include="mdEncuestas.cs" />
+    <Compile Include="mdEncuestasPreguntasOpciones.cs" />
+    <Compile Include="mdInstanciasEncuestas.cs" />
     <Compile Include="mdUsuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

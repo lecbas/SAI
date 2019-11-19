@@ -41,11 +41,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EncuestadosGral.cs" />
+    <Compile Include="EncuestadosRespuestas.cs" />
+    <Compile Include="EncuestaPreguntas.cs" />
+    <Compile Include="EncuestaPreguntasOpciones.cs" />
+    <Compile Include="Encuestas.cs" />
     <Compile Include="eUsuarios.cs" />
     <Compile Include="eUsuariosCarreras.cs" />
     <Compile Include="eUsuariosInscripcion.cs" />
     <Compile Include="eUsuariosModulos.cs" />
     <Compile Include="eUsuariosVista.cs" />
+    <Compile Include="InstanciasEncuestas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
