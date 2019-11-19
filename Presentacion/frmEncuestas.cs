@@ -10,12 +10,11 @@ using System.Windows.Forms;
 
 namespace Presentacion
 {
-    public partial class frmCarreras : Form
+    public partial class frmEncuestas : Form
     {
-        public frmCarreras()
+        public frmEncuestas()
         {
             InitializeComponent();
-            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -108,6 +107,11 @@ namespace Presentacion
         }
 
         private void panelBarraTitulo_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }

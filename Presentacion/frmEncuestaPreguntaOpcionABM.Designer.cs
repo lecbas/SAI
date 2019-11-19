@@ -1,6 +1,6 @@
 ﻿namespace Presentacion
 {
-    partial class frmCarrerasABM
+    partial class frmEncuestaPreguntaOpcionABM
     {
         /// <summary>
         /// Required designer variable.
@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCarrerasABM));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEncuestaPreguntaOpcionABM));
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.panelMarco = new System.Windows.Forms.Panel();
             this.panelDatos = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.lblCodigo = new System.Windows.Forms.Label();
-            this.lblTipocarrera = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
             this.txtCodigo = new System.Windows.Forms.TextBox();
-            this.cmbTipocarrera = new System.Windows.Forms.ComboBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.panelBotones = new System.Windows.Forms.Panel();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -47,7 +47,6 @@
             this.txtCausabaja = new System.Windows.Forms.TextBox();
             this.txtFechabaja = new System.Windows.Forms.TextBox();
             this.chkBaja = new System.Windows.Forms.CheckBox();
-            this.btnUp = new System.Windows.Forms.PictureBox();
             this.btnDown = new System.Windows.Forms.PictureBox();
             this.panelBarraTitulo = new System.Windows.Forms.Panel();
             this.lblTitulo = new System.Windows.Forms.Label();
@@ -57,7 +56,6 @@
             this.panelDatos.SuspendLayout();
             this.panelBotones.SuspendLayout();
             this.panelBaja.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnUp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDown)).BeginInit();
             this.panelBarraTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
@@ -90,16 +88,41 @@
             // 
             this.panelDatos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(230)))), ((int)(((byte)(223)))));
             this.panelDatos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelDatos.Controls.Add(this.textBox1);
+            this.panelDatos.Controls.Add(this.checkBox1);
             this.panelDatos.Controls.Add(this.lblCodigo);
-            this.panelDatos.Controls.Add(this.lblTipocarrera);
             this.panelDatos.Controls.Add(this.lblNombre);
             this.panelDatos.Controls.Add(this.txtCodigo);
-            this.panelDatos.Controls.Add(this.cmbTipocarrera);
             this.panelDatos.Controls.Add(this.txtNombre);
             this.panelDatos.Location = new System.Drawing.Point(10, 38);
             this.panelDatos.Name = "panelDatos";
-            this.panelDatos.Size = new System.Drawing.Size(481, 152);
+            this.panelDatos.Size = new System.Drawing.Size(481, 133);
             this.panelDatos.TabIndex = 13;
+            // 
+            // textBox1
+            // 
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(13, 136);
+            this.textBox1.MaxLength = 50;
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(455, 53);
+            this.textBox1.TabIndex = 17;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.checkBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox1.ForeColor = System.Drawing.Color.Black;
+            this.checkBox1.Location = new System.Drawing.Point(13, 108);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(47, 19);
+            this.checkBox1.TabIndex = 16;
+            this.checkBox1.Text = "Otro";
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // lblCodigo
             // 
@@ -108,19 +131,9 @@
             this.lblCodigo.Location = new System.Drawing.Point(10, 54);
             this.lblCodigo.Margin = new System.Windows.Forms.Padding(0);
             this.lblCodigo.Name = "lblCodigo";
-            this.lblCodigo.Size = new System.Drawing.Size(87, 15);
+            this.lblCodigo.Size = new System.Drawing.Size(40, 15);
             this.lblCodigo.TabIndex = 14;
-            this.lblCodigo.Text = "Codigo Carrera";
-            // 
-            // lblTipocarrera
-            // 
-            this.lblTipocarrera.AutoSize = true;
-            this.lblTipocarrera.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTipocarrera.Location = new System.Drawing.Point(10, 97);
-            this.lblTipocarrera.Name = "lblTipocarrera";
-            this.lblTipocarrera.Size = new System.Drawing.Size(71, 15);
-            this.lblTipocarrera.TabIndex = 13;
-            this.lblTipocarrera.Text = "Tipo Carrera";
+            this.lblCodigo.Text = "Orden";
             // 
             // lblNombre
             // 
@@ -143,16 +156,6 @@
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(131, 20);
             this.txtCodigo.TabIndex = 1;
-            // 
-            // cmbTipocarrera
-            // 
-            this.cmbTipocarrera.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmbTipocarrera.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbTipocarrera.FormattingEnabled = true;
-            this.cmbTipocarrera.Location = new System.Drawing.Point(13, 115);
-            this.cmbTipocarrera.Name = "cmbTipocarrera";
-            this.cmbTipocarrera.Size = new System.Drawing.Size(263, 23);
-            this.cmbTipocarrera.TabIndex = 2;
             // 
             // txtNombre
             // 
@@ -224,11 +227,10 @@
             this.panelBaja.Controls.Add(this.txtCausabaja);
             this.panelBaja.Controls.Add(this.txtFechabaja);
             this.panelBaja.Controls.Add(this.chkBaja);
-            this.panelBaja.Controls.Add(this.btnUp);
             this.panelBaja.Controls.Add(this.btnDown);
-            this.panelBaja.Location = new System.Drawing.Point(10, 198);
+            this.panelBaja.Location = new System.Drawing.Point(10, 190);
             this.panelBaja.Name = "panelBaja";
-            this.panelBaja.Size = new System.Drawing.Size(481, 22);
+            this.panelBaja.Size = new System.Drawing.Size(481, 23);
             this.panelBaja.TabIndex = 9;
             // 
             // lblCausa
@@ -290,29 +292,13 @@
             this.chkBaja.Text = "Baja";
             this.chkBaja.UseVisualStyleBackColor = true;
             // 
-            // btnUp
-            // 
-            this.btnUp.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnUp.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnUp.Image = ((System.Drawing.Image)(resources.GetObject("btnUp.Image")));
-            this.btnUp.Location = new System.Drawing.Point(230, 1);
-            this.btnUp.Name = "btnUp";
-            this.btnUp.Padding = new System.Windows.Forms.Padding(2);
-            this.btnUp.Size = new System.Drawing.Size(20, 20);
-            this.btnUp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.btnUp.TabIndex = 8;
-            this.btnUp.TabStop = false;
-            this.btnUp.Visible = false;
-            this.btnUp.Click += new System.EventHandler(this.btnUp_Click);
-            // 
             // btnDown
             // 
             this.btnDown.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDown.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDown.Image = ((System.Drawing.Image)(resources.GetObject("btnDown.Image")));
-            this.btnDown.Location = new System.Drawing.Point(230, 2);
+            this.btnDown.Location = new System.Drawing.Point(227, 0);
             this.btnDown.Name = "btnDown";
             this.btnDown.Padding = new System.Windows.Forms.Padding(2);
             this.btnDown.Size = new System.Drawing.Size(20, 20);
@@ -326,6 +312,7 @@
             this.panelBarraTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(75)))), ((int)(((byte)(114)))));
             this.panelBarraTitulo.Controls.Add(this.lblTitulo);
             this.panelBarraTitulo.Controls.Add(this.btnCerrar);
+            this.panelBarraTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelBarraTitulo.Location = new System.Drawing.Point(0, 0);
             this.panelBarraTitulo.Name = "panelBarraTitulo";
             this.panelBarraTitulo.Size = new System.Drawing.Size(504, 30);
@@ -338,9 +325,9 @@
             this.lblTitulo.ForeColor = System.Drawing.Color.White;
             this.lblTitulo.Location = new System.Drawing.Point(9, 7);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(124, 17);
+            this.lblTitulo.Size = new System.Drawing.Size(81, 17);
             this.lblTitulo.TabIndex = 9;
-            this.lblTitulo.Text = "SAI - Nueva Carrera";
+            this.lblTitulo.Text = "SAI - Opción";
             this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnCerrar
@@ -359,14 +346,14 @@
             this.btnCerrar.MouseEnter += new System.EventHandler(this.btnCerrar_MouseEnter);
             this.btnCerrar.MouseLeave += new System.EventHandler(this.btnCerrar_MouseLeave);
             // 
-            // frmCarrerasABM
+            // frmEncuestaPreguntaOpcionABM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(504, 282);
             this.Controls.Add(this.panelContenedor);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmCarrerasABM";
+            this.Name = "frmEncuestaPreguntaOpcionABM";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmCarrerasABM";
             this.panelContenedor.ResumeLayout(false);
@@ -376,7 +363,6 @@
             this.panelBotones.ResumeLayout(false);
             this.panelBaja.ResumeLayout(false);
             this.panelBaja.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnUp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDown)).EndInit();
             this.panelBarraTitulo.ResumeLayout(false);
             this.panelBarraTitulo.PerformLayout();
@@ -386,7 +372,6 @@
         }
 
         #endregion
-
         private System.Windows.Forms.Panel panelContenedor;
         private System.Windows.Forms.Panel panelMarco;
         private System.Windows.Forms.Panel panelBarraTitulo;
@@ -399,16 +384,15 @@
         private System.Windows.Forms.PictureBox btnDown;
         private System.Windows.Forms.Panel panelDatos;
         private System.Windows.Forms.Label lblCodigo;
-        private System.Windows.Forms.Label lblTipocarrera;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.TextBox txtCodigo;
-        private System.Windows.Forms.ComboBox cmbTipocarrera;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label lblCausa;
         private System.Windows.Forms.Label lblFechabaja;
         private System.Windows.Forms.TextBox txtCausabaja;
         private System.Windows.Forms.TextBox txtFechabaja;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.CheckBox chkBaja;
-        private System.Windows.Forms.PictureBox btnUp;
     }
 }
