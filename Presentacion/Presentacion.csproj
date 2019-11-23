@@ -34,7 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualBasic" />
-    <Reference Include="Microsoft.VisualBasic.PowerPacks, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualBasic.PowerPacks, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
@@ -50,6 +50,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsGlobal.cs" />
+    <Compile Include="frmAreas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAreas.Designer.cs">
+      <DependentUpon>frmAreas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAreasABM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAreasABM.Designer.cs">
+      <DependentUpon>frmAreasABM.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCarreras.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -61,6 +73,18 @@
     </Compile>
     <Compile Include="frmCarrerasABM.Designer.cs">
       <DependentUpon>frmCarrerasABM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmColegios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmColegios.Designer.cs">
+      <DependentUpon>frmColegios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmColegiosABM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmColegiosABM.Designer.cs">
+      <DependentUpon>frmColegiosABM.cs</DependentUpon>
     </Compile>
     <Compile Include="frmEncuestaABM.cs">
       <SubType>Form</SubType>
@@ -92,6 +116,30 @@
     <Compile Include="frmEncuestas.Designer.cs">
       <DependentUpon>frmEncuestas.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmEstablecimientos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEstablecimientos.Designer.cs">
+      <DependentUpon>frmEstablecimientos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEstablecimientosABM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEstablecimientosABM.Designer.cs">
+      <DependentUpon>frmEstablecimientosABM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGeneros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGeneros.Designer.cs">
+      <DependentUpon>frmGeneros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGenerosABM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGenerosABM.Designer.cs">
+      <DependentUpon>frmGenerosABM.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmInstancias.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +158,18 @@
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmMaterias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMaterias.Designer.cs">
+      <DependentUpon>frmMaterias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMateriasABM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMateriasABM.Designer.cs">
+      <DependentUpon>frmMateriasABM.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,11 +184,23 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmAreas.resx">
+      <DependentUpon>frmAreas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAreasABM.resx">
+      <DependentUpon>frmAreasABM.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCarreras.resx">
       <DependentUpon>frmCarreras.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCarrerasABM.resx">
       <DependentUpon>frmCarrerasABM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmColegios.resx">
+      <DependentUpon>frmColegios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmColegiosABM.resx">
+      <DependentUpon>frmColegiosABM.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmEncuestaABM.resx">
       <DependentUpon>frmEncuestaABM.cs</DependentUpon>
@@ -145,6 +217,18 @@
     <EmbeddedResource Include="frmEncuestas.resx">
       <DependentUpon>frmEncuestas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmEstablecimientos.resx">
+      <DependentUpon>frmEstablecimientos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEstablecimientosABM.resx">
+      <DependentUpon>frmEstablecimientosABM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGeneros.resx">
+      <DependentUpon>frmGeneros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGenerosABM.resx">
+      <DependentUpon>frmGenerosABM.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmInstancias.resx">
       <DependentUpon>frmInstancias.cs</DependentUpon>
     </EmbeddedResource>
@@ -153,6 +237,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMaterias.resx">
+      <DependentUpon>frmMaterias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMateriasABM.resx">
+      <DependentUpon>frmMateriasABM.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
