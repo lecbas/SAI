@@ -12,10 +12,68 @@ namespace Presentacion
 {
     public partial class frmCarreras : Form
     {
+        private Negocio.CarrerasNeg carrerasNeg = new Negocio.CarrerasNeg();
+        private int vista = 2;
+        private String texto = "";
+        private int filaSelecionada = 0;
+        private int filtro = 1;
+
         public frmCarreras()
         {
             InitializeComponent();
-            
+            Negocio.CarrerasNeg.Carreras();
+            cargarLista();
+        }
+
+        private void cargarLista()
+        {
+            dataGridView1.DataSource = carrerasNeg.ObtenerAreas(vista, texto, filtro);
+            if(dataGridView1.Rows.Count > 0)dataGridView1.Rows[0].Selected = true;
+        }
+
+        private void filtrarDescripcion(object sender, EventArgs e)
+        {
+            filtro = 1;
+            cargarLista();
+        }
+
+        private void filtrarCodigoInterno(object sender, EventArgs e)
+        {
+            filtro = 2;
+            cargarLista();
+        }
+
+        private void filtrarTipo(object sender, EventArgs e)
+        {
+            filtro = 3;
+            cargarLista();
+        }
+
+        private void VerTodos(object sender, EventArgs e)
+        {
+            vista = 2;
+            cargarLista();
+        }
+
+        private void VerActivos(object sender, EventArgs e)
+        {
+            vista = 1;
+            cargarLista();
+        }
+
+        private void VerInactivos(object sender, EventArgs e)
+        {
+            vista = 0;
+            cargarLista();
+        }
+
+        private void BuscarTexto(object sender, EventArgs e)
+        {
+            if (!toolStripTextBox1.Text.Equals("Buscar..."))
+            {
+                texto = toolStripTextBox1.Text;
+                cargarLista();
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -110,6 +168,51 @@ namespace Presentacion
         private void panelBarraTitulo_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void CrearCarrera(object sender, EventArgs e)
+        {
+            frmCarrerasABM abm = new frmCarrerasABM(Referencia);
+            abm.Show();
+        }
+
+        private void ModificarCarrera(object sender, EventArgs e)
+        {
+            if (filaSelecionada != -1)
+            {
+                DataTable dt = (DataTable)dataGridView1.DataSource;
+                frmCarrerasABM abm = new frmCarrerasABM(Referencia);
+                abm.cargarCampos((int)dt.Rows[filaSelecionada]["IdCarrera"], (int)dt.Rows[filaSelecionada]["IdTipoCarrera"], (String)dt.Rows[filaSelecionada]["Descripcion"], (String)dt.Rows[filaSelecionada]["CodigoInterno"], (bool)dt.Rows[filaSelecionada]["Baja"], (String)dt.Rows[filaSelecionada]["FechaBaja"], (String)dt.Rows[filaSelecionada]["CausaBaja"]);
+                abm.Show();
+            }
+        }
+
+        private void EliminarCarrera(object sender, EventArgs e)
+        {
+            Negocio.CarrerasNeg.EliminarCarrera((int)((DataTable)dataGridView1.DataSource).Rows[filaSelecionada]["IdCarrera"]);
+            cargarLista();
+        }
+
+        private void Seleccion(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1)
+            {
+                filaSelecionada = e.RowIndex;
+                dataGridView1.Rows[filaSelecionada].Selected = true;
+            }
+        }
+
+        private void ToolStripTextBox1_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (toolStripTextBox1.Text.Equals("Buscar..."))
+            {
+                toolStripTextBox1.Text = "";
+            }
+        }
+
+        private void Referencia_CheckedChanged(object sender, EventArgs e)
+        {
+            cargarLista();
         }
     }
 }

@@ -63,6 +63,7 @@
             this.btnRestaurar = new System.Windows.Forms.PictureBox();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.btnMinimizar = new System.Windows.Forms.PictureBox();
+            this.Referencia = new System.Windows.Forms.CheckBox();
             this.panelContenedor.SuspendLayout();
             this.panelMarco.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -88,6 +89,7 @@
             // panelMarco
             // 
             this.panelMarco.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(186)))), ((int)(((byte)(189)))));
+            this.panelMarco.Controls.Add(this.Referencia);
             this.panelMarco.Controls.Add(this.btnVolver);
             this.panelMarco.Controls.Add(this.panel1);
             this.panelMarco.Controls.Add(this.dataGridView1);
@@ -159,6 +161,8 @@
             this.toolStripTextBox1.Size = new System.Drawing.Size(200, 25);
             this.toolStripTextBox1.Text = "Buscar...";
             this.toolStripTextBox1.ToolTipText = "Buscar...";
+            this.toolStripTextBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ToolStripTextBox1_MouseDown);
+            this.toolStripTextBox1.TextChanged += new System.EventHandler(this.BuscarTexto);
             // 
             // toolStripButton1
             // 
@@ -204,6 +208,7 @@
             this.verTodosToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.T)));
             this.verTodosToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.verTodosToolStripMenuItem.Text = "Ver Todos";
+            this.verTodosToolStripMenuItem.Click += new System.EventHandler(this.VerTodos);
             // 
             // verActivosToolStripMenuItem
             // 
@@ -213,6 +218,7 @@
             this.verActivosToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.A)));
             this.verActivosToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.verActivosToolStripMenuItem.Text = "Ver Activos";
+            this.verActivosToolStripMenuItem.Click += new System.EventHandler(this.VerActivos);
             // 
             // verInactivosToolStripMenuItem
             // 
@@ -222,6 +228,7 @@
             this.verInactivosToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.I)));
             this.verInactivosToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.verInactivosToolStripMenuItem.Text = "Ver Inactivos";
+            this.verInactivosToolStripMenuItem.Click += new System.EventHandler(this.VerInactivos);
             // 
             // toolStripSeparator2
             // 
@@ -250,6 +257,7 @@
             this.toolStripButton3.Name = "toolStripButton3";
             this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton3.Text = "Nuevo";
+            this.toolStripButton3.Click += new System.EventHandler(this.CrearArea);
             // 
             // toolStripButton4
             // 
@@ -259,6 +267,7 @@
             this.toolStripButton4.Name = "toolStripButton4";
             this.toolStripButton4.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton4.Text = "Modificar";
+            this.toolStripButton4.Click += new System.EventHandler(this.ModificarArea);
             // 
             // toolStripButton5
             // 
@@ -268,6 +277,7 @@
             this.toolStripButton5.Name = "toolStripButton5";
             this.toolStripButton5.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton5.Text = "Eliminar";
+            this.toolStripButton5.Click += new System.EventHandler(this.EliminarArea);
             // 
             // toolStripSeparator3
             // 
@@ -298,50 +308,59 @@
             this.nuevoToolStripMenuItem.Name = "nuevoToolStripMenuItem";
             this.nuevoToolStripMenuItem.ShortcutKeyDisplayString = "Alt+N";
             this.nuevoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.N)));
-            this.nuevoToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.nuevoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.nuevoToolStripMenuItem.Text = "&Nuevo";
-            this.nuevoToolStripMenuItem.Click += new System.EventHandler(this.nuevoToolStripMenuItem_Click);
+            this.nuevoToolStripMenuItem.Click += new System.EventHandler(this.CrearArea);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(163, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(177, 6);
             // 
             // esitarToolStripMenuItem
             // 
             this.esitarToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("esitarToolStripMenuItem.Image")));
             this.esitarToolStripMenuItem.Name = "esitarToolStripMenuItem";
             this.esitarToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.M)));
-            this.esitarToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.esitarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.esitarToolStripMenuItem.Text = "&Modificar";
+            this.esitarToolStripMenuItem.Click += new System.EventHandler(this.ModificarArea);
             // 
             // eliminarToolStripMenuItem
             // 
             this.eliminarToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("eliminarToolStripMenuItem.Image")));
             this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
             this.eliminarToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.E)));
-            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.eliminarToolStripMenuItem.Text = "&Eliminar";
+            this.eliminarToolStripMenuItem.Click += new System.EventHandler(this.EliminarArea);
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(163, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(177, 6);
             // 
             // acercaDeToolStripMenuItem
             // 
             this.acercaDeToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("acercaDeToolStripMenuItem.Image")));
             this.acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
-            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.acercaDeToolStripMenuItem.Text = "Exportar ...";
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(10, 69);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(664, 214);
             this.dataGridView1.TabIndex = 2;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Seleccion);
             // 
             // panelBarraTitulo
             // 
@@ -356,7 +375,6 @@
             this.panelBarraTitulo.Name = "panelBarraTitulo";
             this.panelBarraTitulo.Size = new System.Drawing.Size(688, 30);
             this.panelBarraTitulo.TabIndex = 1;
-            this.panelBarraTitulo.Paint += new System.Windows.Forms.PaintEventHandler(this.panelBarraTitulo_Paint);
             // 
             // label1
             // 
@@ -432,6 +450,18 @@
             this.btnMinimizar.MouseEnter += new System.EventHandler(this.btnMinimizar_MouseEnter);
             this.btnMinimizar.MouseLeave += new System.EventHandler(this.btnMinimizar_MouseLeave);
             // 
+            // Referencia
+            // 
+            this.Referencia.AutoSize = true;
+            this.Referencia.Location = new System.Drawing.Point(13, 305);
+            this.Referencia.Name = "Referencia";
+            this.Referencia.Size = new System.Drawing.Size(122, 17);
+            this.Referencia.TabIndex = 6;
+            this.Referencia.Text = "Objeto de referencia";
+            this.Referencia.UseVisualStyleBackColor = true;
+            this.Referencia.Visible = false;
+            this.Referencia.CheckedChanged += new System.EventHandler(this.Referencia_CheckedChanged);
+            // 
             // frmAreas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -444,6 +474,7 @@
             this.Text = "frmAreas";
             this.panelContenedor.ResumeLayout(false);
             this.panelMarco.ResumeLayout(false);
+            this.panelMarco.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.toolMenu.ResumeLayout(false);
             this.toolMenu.PerformLayout();
@@ -494,5 +525,6 @@
         private System.Windows.Forms.ToolStripMenuItem acercaDeToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton toolStripButton6;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private System.Windows.Forms.CheckBox Referencia;
     }
 }

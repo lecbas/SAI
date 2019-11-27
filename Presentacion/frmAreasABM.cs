@@ -12,9 +12,28 @@ namespace Presentacion
 {
     public partial class frmAreasABM : Form
     {
+        int idArea = -1;
+        private Negocio.AreasNeg areasNeg = new Negocio.AreasNeg();
+        CheckBox formAreas = new CheckBox();
+
         public frmAreasABM()
         {
             InitializeComponent();
+        }
+
+        public frmAreasABM(CheckBox referencia)
+        {
+            InitializeComponent();
+            formAreas = referencia;
+        }
+
+        public void cargarCampos(int id, String descipcion, bool estado, String fechaBaja, String causaBaja)
+        {
+            idArea = id;
+            txtDescrip.Text = descipcion;
+            chkBaja.Checked = estado;
+            txtFechabaja.Text = fechaBaja;
+            txtCausabaja.Text = causaBaja;
         }
 
         private void btnDown_Click(object sender, EventArgs e)
@@ -48,5 +67,43 @@ namespace Presentacion
             this.Close();
             this.Dispose();
         }
+
+        private void GuardarArea(object sender, EventArgs e)
+        {
+            String fecha = "", causa = "";
+            if(chkBaja.Checked == true) { fecha = txtFechabaja.Text; causa = txtCausabaja.Text;}
+            bool resultado;
+            if(idArea == -1)
+            {
+                //areasNeg.AgregarArea(txtDescrip.Text, chkBaja.Checked, txtFechabaja.Text, txtCausabaja.Text);
+                resultado = Negocio.AreasNeg.AgregarArea(txtDescrip.Text, chkBaja.Checked, fecha, causa);
+            }
+            else
+            {
+                //areasNeg.ModificarArea(idArea, txtDescrip.Text, chkBaja.Checked, txtFechabaja.Text, txtCausabaja.Text);
+                resultado = Negocio.AreasNeg.ModificarArea(idArea,txtDescrip.Text, chkBaja.Checked, fecha, causa);
+            }
+            if (resultado)
+            {
+                formAreas.Checked = !formAreas.Checked;
+                this.Close();
+                this.Dispose();
+            }
+        }
+
+        private void ChkBaja_CheckedChanged(object sender, EventArgs e)
+        {
+            if(chkBaja.Checked == true)
+            {
+                txtFechabaja.ReadOnly = false;
+                txtCausabaja.ReadOnly = false;
+            }
+            else
+            {
+                txtFechabaja.ReadOnly = true;
+                txtCausabaja.ReadOnly = true;
+            }
+        }
+
     }
 }

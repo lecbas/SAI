@@ -107,7 +107,6 @@
             // txtDescrip
             // 
             this.txtDescrip.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtDescrip.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtDescrip.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescrip.Location = new System.Drawing.Point(13, 27);
             this.txtDescrip.MaxLength = 50;
@@ -146,6 +145,7 @@
             this.btnGuardar.Text = "   &Guardar";
             this.btnGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.GuardarArea);
             // 
             // btnVolver
             // 
@@ -208,11 +208,11 @@
             // txtCausabaja
             // 
             this.txtCausabaja.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtCausabaja.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCausabaja.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCausabaja.Location = new System.Drawing.Point(13, 98);
             this.txtCausabaja.Multiline = true;
             this.txtCausabaja.Name = "txtCausabaja";
+            this.txtCausabaja.ReadOnly = true;
             this.txtCausabaja.Size = new System.Drawing.Size(455, 54);
             this.txtCausabaja.TabIndex = 5;
             // 
@@ -224,6 +224,7 @@
             this.txtFechabaja.Location = new System.Drawing.Point(13, 50);
             this.txtFechabaja.Multiline = true;
             this.txtFechabaja.Name = "txtFechabaja";
+            this.txtFechabaja.ReadOnly = true;
             this.txtFechabaja.Size = new System.Drawing.Size(131, 23);
             this.txtFechabaja.TabIndex = 4;
             // 
@@ -239,6 +240,7 @@
             this.chkBaja.TabIndex = 3;
             this.chkBaja.Text = "Baja";
             this.chkBaja.UseVisualStyleBackColor = true;
+            this.chkBaja.CheckedChanged += new System.EventHandler(this.ChkBaja_CheckedChanged);
             // 
             // btnUp
             // 
